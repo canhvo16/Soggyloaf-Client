@@ -1,17 +1,22 @@
 # SoggyrLoaf
-[Canh Vo]() [Guillermo Palencia]() [Tak Lo]()
+Date: 4/13/2022
+By [Canh Vo](https://www.linkedin.com/in/canhvo16/)    [Guillermo Palencia](https://www.linkedin.com/in/guillermo-palencia/)    [Tak Lo](linkedin.com/in/takkwanlo)
 
 ## Overview
-
+SoggyLoaf is a anime listing website inspired by crunchyroll. You can save your watch later list and come back to it later.
 
 
 ## Technologies
-Front End: React, Javascript, Html, Css
-Back End: Sequelize, Postgres, Express, Node.js, Nodemon
+- React, Javascript, Html, Css
+- Sequelize, Postgres 
+- Express 
+- Node.js 
+- Nodemon
+
 
 ## Getting Started
 [SoggyLoaf]()
-[Trello]()
+[Trello](https://trello.com/b/hqFjZAfn/soggyloaf)
 
 ## Future Update
 
