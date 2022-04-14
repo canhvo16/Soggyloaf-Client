@@ -1,6 +1,6 @@
-# SoggyrLoaf
+# SoggyLoaf
 Date: 4/13/2022   
-By [Canh Vo](https://www.linkedin.com/in/canhvo16/)    [Guillermo Palencia](https://www.linkedin.com/in/guillermo-palencia/)    [Tak Lo](linkedin.com/in/takkwanlo)
+By [[Canh Vo](https://www.linkedin.com/in/canhvo16/)] [[Guillermo Palencia](https://www.linkedin.com/in/guillermo-palencia/)] [[Tak Lo](linkedin.com/in/takkwanlo)]
 
 ## Overview
 SoggyLoaf is a anime listing website inspired by crunchyroll. You can save your watch later list and come back to it later.
@@ -17,6 +17,7 @@ SoggyLoaf is a anime listing website inspired by crunchyroll. You can save your 
 ## Getting Started
 [SoggyLoaf]()
 [Trello](https://trello.com/b/hqFjZAfn/soggyloaf)
+![ERD, Component Diagrams](/Soggyloaf.jpg)
 
 ## Future Update
 
