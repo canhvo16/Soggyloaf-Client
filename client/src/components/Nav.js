@@ -1,7 +1,11 @@
+import React from 'react'
+import About from './About'
 
 const Nav = () => {
   return (
-    <div>Nav</div>
+    <div>Nav
+      <About></About>
+    </div >
   )
 }
 
