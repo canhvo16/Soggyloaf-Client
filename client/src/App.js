@@ -11,7 +11,8 @@ import PlayList from './components/PlayList'
 import AnimeDetails from './components/AnimeDetails'
 
 function App() {
-  const [user, setUser] = useState({ token: 'asd' })
+  const [user, setUser] = useState(null)
+
 
   return (
     <div className="App">
@@ -20,7 +21,7 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login setUser={setUser} />} />
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
         <Route path='/playlist' element={<PlayList />} />
