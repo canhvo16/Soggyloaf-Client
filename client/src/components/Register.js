@@ -1,14 +1,82 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
 
 const Register = () => {
+  const navigate = useNavigate()
+  const [userBody, setForm] = useState({
+    name: '',
+    email: '',
+    password: ''
+  })
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const onChange = (e) => {
+    setForm({
+      ...userBody,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    //register service
+    clearUserBody()
+    navigate('/login')
+  }
+
+  const clearUserBody = () => {
+    setForm({
+      name: '',
+      email: '',
+      password: ''
+    })
+  }
+
   return (
     <div className="register">
-      <form className="register box">
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <input type="password" placeholder="Confirm Password" />
+      <form className="register box" onSubmit={onSubmit}>
+        <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          value={userBody.name}
+          onChange={onChange}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          name="email"
+          value={userBody.email}
+          onChange={onChange}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          value={userBody.password}
+          onChange={onChange}
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={(e) => {
+            setConfirmPassword(e.target.value)
+          }}
+        />
+        <button
+          type="submit"
+          disabled={
+            !userBody.name ||
+            !userBody.email ||
+            !userBody.password ||
+            confirmPassword !== userBody.password
+          }
+        >
+          Sign Up
+        </button>
       </form>
     </div>
   )
