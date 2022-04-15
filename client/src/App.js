@@ -1,6 +1,7 @@
-import './style/App.css';
 import Nav from './components/Nav';
 import React from 'react'
+import { useState } from 'react';
+import './style/App.css';
 
 function App() {
   return (
