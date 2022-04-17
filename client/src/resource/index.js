@@ -13,6 +13,9 @@ const getTopAnimes = async (callback) => {
             userPreferred
           }
           popularity
+          coverImage {
+            medium
+          }
         }
       }
     }
@@ -23,6 +26,7 @@ const getTopAnimes = async (callback) => {
     data: {
       query: query
     }
+
   })
   callback(res.data.data.Page.media)
 }
