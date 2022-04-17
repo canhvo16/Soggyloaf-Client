@@ -1,8 +1,12 @@
 import React from 'react'
 
-const AnimeCard = () => {
+const AnimeCard = ({ id, title, popularity, coverImage }) => {
   return (
-    <div>AnimeCard</div>
+    <div className='animeCard'>
+      <h2>title: {title.userPerferred || title.english}</h2>
+      <h2>popularity: {popularity}</h2>
+      <img src={coverImage.medium} alt={title.english} />
+    </div>
   )
 }
 
