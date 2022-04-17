@@ -19,12 +19,12 @@ const Register = () => {
     })
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
     await RegisterUser({
       name: userBody.name,
       email: userBody.email,
-      password:userBody.password
+      password: userBody.password
     })
     clearUserBody()
     navigate('/login')
