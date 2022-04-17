@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { RegisterUser } from '../services/Auth'
 
 const Register = () => {
   const navigate = useNavigate()
@@ -20,7 +21,11 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    //register service
+    await RegisterUser({
+      name: userBody.name,
+      email: userBody.email,
+      password:userBody.password
+    })
     clearUserBody()
     navigate('/login')
   }
