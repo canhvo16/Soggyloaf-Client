@@ -1,8 +1,11 @@
 import React from 'react'
 
-const AnimeDetails = () => {
+const AnimeDetails = ({ id, title, popularity }) => {
   return (
-    <div>AnimeDetails</div>
+    <div>
+      <h2>title: {title}</h2>
+      <h2>popularity: {popularity}</h2>
+    </div>
   )
 }
 
