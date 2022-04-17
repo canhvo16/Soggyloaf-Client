@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { RegisterUser } from '../services/Auth'
 
 const Register = () => {
   const navigate = useNavigate()
@@ -18,9 +19,13 @@ const Register = () => {
     })
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
-    //register service
+    await RegisterUser({
+      name: userBody.name,
+      email: userBody.email,
+      password: userBody.password
+    })
     clearUserBody()
     navigate('/login')
   }
@@ -34,13 +39,49 @@ const Register = () => {
   }
 
   return (
-    <div className='register'>
-      <form className='register box' onSubmit={onSubmit}>
-        <input type="text" placeholder='Name' name='name' value={userBody.name} onChange={onChange} />
-        <input type="email" placeholder='Email' name='email' value={userBody.email} onChange={onChange} />
-        <input type="password" placeholder='Password' name='password' value={userBody.password} onChange={onChange} />
-        <input type="password" placeholder='Confirm Password' name='confirmPassword' value={confirmPassword} onChange={(e) => { setConfirmPassword(e.target.value) }} />
-        <button type='submit' disabled={!userBody.name || !userBody.email || !userBody.password || confirmPassword !== userBody.password}>Sign Up</button>
+    <div className="register">
+      <form className="register box" onSubmit={onSubmit}>
+        <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          value={userBody.name}
+          onChange={onChange}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          name="email"
+          value={userBody.email}
+          onChange={onChange}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          value={userBody.password}
+          onChange={onChange}
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={(e) => {
+            setConfirmPassword(e.target.value)
+          }}
+        />
+        <button
+          type="submit"
+          disabled={
+            !userBody.name ||
+            !userBody.email ||
+            !userBody.password ||
+            confirmPassword !== userBody.password
+          }
+        >
+          Sign Up
+        </button>
       </form>
     </div>
   )
