@@ -21,13 +21,17 @@ const Register = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    await RegisterUser({
+    const user = await RegisterUser({
       name: userBody.name,
       email: userBody.email,
       password: userBody.password
     })
-    clearUserBody()
-    navigate('/login')
+    if (user.msg) {
+      alert(user.msg)
+    } else {
+      clearUserBody()
+      navigate('/login')
+    }
   }
 
   const clearUserBody = () => {
