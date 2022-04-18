@@ -31,6 +31,31 @@ const getTopAnimes = async (callback) => {
   callback(res.data.data.Page.media)
 }
 
+const getEpisode = async (callback, id) => {
+  const query = `
+    query { 
+      media(id: ${id}){
+        streamingEpisodes {
+          title
+          thumbnail
+          site
+          url
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+
+  })
+  callback(res.data.data.streamingEpisodes)
+}
+
 export {
-  getTopAnimes
+  getTopAnimes,
+  getEpisode
 }

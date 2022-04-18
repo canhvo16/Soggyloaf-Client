@@ -30,7 +30,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
         <Route path="/animedetails" element={<AnimeDetails />} />
-        <Route path="/episodedetails/:id" element={<EpisodeDetails />} />
+        <Route path="/:anime_id/episodedetails/:episode" element={<EpisodeDetails />} />
         <Route path="/" element={<PrivateOutlet />}>
           <Route path="/playlist" element={<PlayList />} />
         </Route>
