@@ -9,6 +9,7 @@ import Register from './components/Register'
 import About from './components/About'
 import PlayList from './components/PlayList'
 import AnimeDetails from './components/AnimeDetails'
+import EpisodeDetails from './components/EpisodeDetails'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -29,6 +30,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
         <Route path="/animedetails" element={<AnimeDetails />} />
+        <Route path="/episodedetails/:id" element={<EpisodeDetails />} />
         <Route path="/" element={<PrivateOutlet />}>
           <Route path="/playlist" element={<PlayList />} />
         </Route>
