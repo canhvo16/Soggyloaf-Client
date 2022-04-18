@@ -11,7 +11,6 @@ const AnimeDetails = () => {
   useEffect(() => {
     getAnimeDetails(setAnimeDetails, id)
   }, [])
-  console.log('here', animeDetails)
 
   let animes = animeDetails.streamingEpisodes
     ? animeDetails.streamingEpisodes.map((episode, index) => (
@@ -19,9 +18,13 @@ const AnimeDetails = () => {
     ))
     : null
 
+  let title = animeDetails.title
+    ? (title = animeDetails.title.english)
+    : (title = 'Episodes')
+
   return (
     <div className="animeDetails">
-      <h1>anime</h1>
+      <h1>{title}</h1>
       {animes}
     </div>
   )
