@@ -26,6 +26,11 @@ function App() {
     setUser(user)
   }
 
+  const logout = () => {
+    setUser(null)
+    localStorage.clear()
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -36,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <Nav user={user} />
+        <Nav user={user} logout={logout} />
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
