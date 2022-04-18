@@ -28,7 +28,7 @@ function App() {
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
-        <Route path="/animedetails" element={<AnimeDetails />} />
+        <Route path="/:id/animedetails" element={<AnimeDetails />} />
         <Route path="/" element={<PrivateOutlet />}>
           <Route path="/playlist" element={<PlayList />} />
         </Route>

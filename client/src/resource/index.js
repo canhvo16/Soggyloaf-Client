@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const base_url = ''
 
-const getTopAnimes = async (callback) => {
+const getTopAnimes = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -26,11 +26,35 @@ const getTopAnimes = async (callback) => {
     data: {
       query: query
     }
-
   })
   callback(res.data.data.Page.media)
 }
 
-export {
-  getTopAnimes
+const getAnimeDetails = async (callback, id) => {
+  const query = `
+    query { 
+      Page(perPage: 1) {
+        media(type: ANIME id: ${id}) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            medium
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
 }
+
+export { getTopAnimes, getAnimeDetails }
