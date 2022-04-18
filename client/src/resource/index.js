@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getTopAnimes = async (callback) => {
+const getTopAnimes = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -26,31 +26,6 @@ const getTopAnimes = async (callback) => {
     }
   })
   callback(res.data.data.Page.media)
-}
-
-
-const getEpisode = async (callback, animeId, episodeIndex) => {
-  const query =
-    `query { 
-    Media(id: ${animeId}){
-      streamingEpisodes {
-        title
-        thumbnail
-        site
-        url
-      }
-    }
-  }`
-
-  const res = await axios({
-    url: 'https://graphql.anilist.co/',
-    method: 'post',
-    data: {
-      query: query
-    }
-  })
-  console.log(res.data.data.Media)
-  callback(res.data.data.Media.streamingEpisodes[episodeIndex - 1])
 }
 
 const searchAnimes = async (callback, search) => {
@@ -81,5 +56,35 @@ const searchAnimes = async (callback, search) => {
   callback(res.data.data.Page.media)
 }
 
-export { getTopAnimes, searchAnimes, getEpisode }
+const getAnimeDetails = (callback, id) => {
+  const query = `
+  query {
+    Media(id: ${id} ){
+      title {
+        english,
+        userPreferred
+      }
+      coverImage {
+        medium
+      }
+      streamingEpisodes {
+        title,
+        thumbnail,
+        url
+      }
+    }
+  }
+  `
+  axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  }).then(res => {
+    console.log(res.data.data.Media)
+    callback(res.data.data.Media)
+  })
+}
 
+export { getTopAnimes, searchAnimes, getAnimeDetails }

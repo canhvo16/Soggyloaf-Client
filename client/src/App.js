@@ -11,7 +11,6 @@ import PlayList from './components/PlayListPage'
 import AnimeDetails from './components/AnimeDetailsPage'
 import SearchPage from './components/SearchPage'
 import ProfilePage from './components/ProfilePage'
-import EpisodeDetails from './components/EpisodeDetails'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -32,8 +31,7 @@ function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
-        <Route path="/animedetails" element={<AnimeDetails />} />
-        <Route path="/anime/:anime_id/episodedetails/:episode_index" element={<EpisodeDetails />} />
+        <Route path="/:id" element={<AnimeDetails />} />
         <Route path="/" element={<PrivateOutlet />}>
           <Route path="/playlist" element={<PlayList />} />
           <Route path="/profile" element={<ProfilePage />} />
