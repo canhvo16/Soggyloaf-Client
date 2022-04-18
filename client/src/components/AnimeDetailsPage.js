@@ -13,7 +13,6 @@ const AnimeDetails = () => {
     //axios get data from back end
     getAnimeDetails(setAnimeDetails, id)
   }, [])
-  console.log(animeDetails.streamingEpisodes)
 
   let animes = animeDetails.streamingEpisodes
     ? animeDetails.streamingEpisodes.map((anime, index) => (
@@ -21,9 +20,13 @@ const AnimeDetails = () => {
       ))
     : null
 
+  let title = animeDetails.title
+    ? (title = animeDetails.title.english)
+    : (title = 'Episodes')
+
   return (
     <div className="animeDetails">
-      <h1>Episodes</h1>
+      <h1>{title}</h1>
       {animes}
     </div>
   )

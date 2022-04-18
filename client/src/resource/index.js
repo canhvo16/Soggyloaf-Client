@@ -82,7 +82,6 @@ const getAnimeDetails = (callback, id) => {
       query: query
     }
   }).then(res => {
-    console.log(res.data.data.Media)
     callback(res.data.data.Media)
   })
 }
