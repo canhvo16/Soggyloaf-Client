@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import Nav from './components/Nav'
+import React from 'react'
+import { useState } from 'react'
+import './style/App.css'
+import { Route, Routes, Outlet, Navigate } from 'react-router-dom'
+import Home from './components/HomePage'
+import Login from './components/LoginPage'
+import Register from './components/RegisterPage'
+import About from './components/AboutPage'
+import PlayList from './components/PlayListPage'
+import AnimeDetails from './components/AnimeDetailsPage'
+import SearchPage from './components/SearchPage'
 
 function App() {
+  const [user, setUser] = useState(null)
+
+  const PrivateOutlet = () => {
+    //get user
+    return user ? <Outlet /> : <Navigate to="/login" />
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="header">
+        <Nav user={user} />
       </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/:id" element={<AnimeDetails />} />
+        <Route path="/" element={<PrivateOutlet />}>
+          <Route path="/playlist" element={<PlayList />} />
+        </Route>
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
