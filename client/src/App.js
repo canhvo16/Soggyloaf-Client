@@ -16,7 +16,7 @@ import ProfilePage from './components/ProfilePage'
 function App() {
   const [user, setUser] = useState(null)
 
-  const PrivateOutlet = async () => {
+  const PrivateOutlet = () => {
     return user ? <Outlet /> : <Navigate to="/login" />
   }
 
