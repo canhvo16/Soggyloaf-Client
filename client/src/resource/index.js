@@ -29,18 +29,18 @@ const getTopAnimes = async (callback) => {
 }
 
 
-const getEpisode = async (callback, id) => {
-  const query = `
-    query { 
-      media(id: ${id}){
-        streamingEpisodes {
-          title
-          thumbnail
-          site
-          url
-        }
+const getEpisode = async (callback, animeId, episodeIndex) => {
+  const query =
+    `query { 
+    Media(id: ${animeId}){
+      streamingEpisodes {
+        title
+        thumbnail
+        site
+        url
       }
-    }`
+    }
+  }`
 
   const res = await axios({
     url: 'https://graphql.anilist.co/',
@@ -49,7 +49,8 @@ const getEpisode = async (callback, id) => {
       query: query
     }
   })
-  callback(res.data.data.streamingEpisodes)
+  console.log(res.data.data.Media)
+  callback(res.data.data.Media.streamingEpisodes[episodeIndex - 1])
 }
 
 const searchAnimes = async (callback, search) => {
