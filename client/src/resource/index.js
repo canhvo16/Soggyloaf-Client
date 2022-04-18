@@ -26,7 +26,6 @@ const getTopAnimes = async (callback) => {
     data: {
       query: query
     }
-
   })
   callback(res.data.data.Page.media)
 }
