@@ -3,12 +3,13 @@ import React from 'react'
 import { useState } from 'react'
 import './style/App.css'
 import { Route, Routes, Outlet, Navigate } from 'react-router-dom'
-import Home from './components/Home'
-import Login from './components/Login'
-import Register from './components/Register'
-import About from './components/About'
-import PlayList from './components/PlayList'
-import AnimeDetails from './components/AnimeDetails'
+import Home from './components/HomePage'
+import Login from './components/LoginPage'
+import Register from './components/RegisterPage'
+import About from './components/AboutPage'
+import PlayList from './components/PlayListPage'
+import AnimeDetails from './components/AnimeDetailsPage'
+import SearchPage from './components/SearchPage'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -26,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
         <Route path="/animedetails" element={<AnimeDetails />} />
