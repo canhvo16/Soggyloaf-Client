@@ -1,21 +1,30 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { getAnimeDetails } from '../resource'
+import { useParams } from 'react-router'
+import EpisodeCard from './EpisodeCard'
 
 //anime details should get data from back end, not props
 const AnimeDetails = () => {
-  const [animeDetails, setAnimeDetails] = useState({})
-  const { id, title, popularity } = animeDetails
+  const { id } = useParams()
+  const [animeDetails, setAnimeDetails] = useState([])
 
   useEffect(() => {
     //axios get data from back end
-
-    setAnimeDetails({})
+    getAnimeDetails(setAnimeDetails, id)
   }, [])
+  console.log(animeDetails.streamingEpisodes)
+
+  let animes = animeDetails.streamingEpisodes
+    ? animeDetails.streamingEpisodes.map((anime, index) => (
+        <EpisodeCard key={index} {...anime} />
+      ))
+    : null
 
   return (
-    <div className='animeDetails'>
-      <h2>title: {title}</h2>
-      <h2>popularity: {popularity}</h2>
+    <div className="animeDetails">
+      <h1>Episodes</h1>
+      {animes}
     </div>
   )
 }
