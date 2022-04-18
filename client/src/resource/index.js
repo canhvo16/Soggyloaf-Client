@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getTopAnimes = async (callback) => {
+const getTopAnimes = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -56,4 +56,35 @@ const searchAnimes = async (callback, search) => {
   callback(res.data.data.Page.media)
 }
 
-export { getTopAnimes, searchAnimes }
+const getAnimeDetails = (callback, id) => {
+  const query = `
+  query {
+    Media(id: ${id} ){
+      title {
+        english,
+        userPreferred
+      }
+      coverImage {
+        medium
+      }
+      streamingEpisodes {
+        title,
+        thumbnail,
+        url
+      }
+    }
+  }
+  `
+  axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  }).then(res => {
+    console.log(res.data.data.Media)
+    callback(res.data.data.Media)
+  })
+}
+
+export { getTopAnimes, searchAnimes, getAnimeDetails }

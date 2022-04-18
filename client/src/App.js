@@ -31,7 +31,7 @@ function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
-        <Route path="/animedetails" element={<AnimeDetails />} />
+        <Route path="/:id" element={<AnimeDetails />} />
         <Route path="/" element={<PrivateOutlet />}>
           <Route path="/playlist" element={<PlayList />} />
           <Route path="/profile" element={<ProfilePage />} />
