@@ -56,7 +56,7 @@ const searchAnimes = async (callback, search) => {
   callback(res.data.data.Page.media)
 }
 
-const getAnimeDetails = (callback, id) => {
+const getAnimeDetails = async (callback, id) => {
   const query = `
   query {
     Media(id: ${id} ){
@@ -75,14 +75,13 @@ const getAnimeDetails = (callback, id) => {
     }
   }
   `
-  axios({
+  await axios({
     url: 'https://graphql.anilist.co/',
     method: 'post',
     data: {
       query: query
     }
   }).then(res => {
-    console.log(res.data.data.Media)
     callback(res.data.data.Media)
   })
 }
