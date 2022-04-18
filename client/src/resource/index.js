@@ -1,12 +1,10 @@
 import axios from 'axios'
 
-const base_url = ''
-
 const getTopAnimes = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
-        media(type: ANIME, popularity_greater: 300000) {
+        media(type: ANIME, popularity_greater: 300000, sort: POPULARITY_DESC) {
           id
           title {
             english,
@@ -30,6 +28,7 @@ const getTopAnimes = async (callback) => {
   callback(res.data.data.Page.media)
 }
 
+
 const getEpisode = async (callback, id) => {
   const query = `
     query { 
@@ -41,7 +40,35 @@ const getEpisode = async (callback, id) => {
           url
         }
       }
+    }`
+
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
     }
+  })
+  callback(res.data.data.streamingEpisodes)
+}
+
+const searchAnimes = async (callback, search) => {
+  const query = `
+    query {
+    Page(perPage: 20) {
+      media(type: ANIME, sort: POPULARITY_DESC, search: "${search}") {
+        id
+          title {
+          english,
+            userPreferred
+        }
+        popularity
+          coverImage {
+          medium
+        }
+      }
+    }
+  }
   `
   const res = await axios({
     url: 'https://graphql.anilist.co/',
@@ -49,12 +76,9 @@ const getEpisode = async (callback, id) => {
     data: {
       query: query
     }
-
   })
-  callback(res.data.data.streamingEpisodes)
+  callback(res.data.data.Page.media)
 }
 
-export {
-  getTopAnimes,
-  getEpisode
-}
+export { getTopAnimes, searchAnimes, getEpisode }
+
