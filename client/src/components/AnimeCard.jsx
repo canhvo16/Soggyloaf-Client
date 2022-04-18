@@ -9,9 +9,9 @@ const AnimeCard = ({ id, title, popularity, coverImage }) => {
   }
   return (
     <div className='animeCard' onClick={() => showDetails(id)}>
-      <h2>title: {title.userPerferred || title.english}</h2>
-      <h2>popularity: {popularity}</h2>
+      <h2>{title.userPerferred || title.english}</h2>
       <img src={coverImage.medium} alt={title.english} />
+      <h2>popularity: {popularity}</h2>
     </div>
   )
 }

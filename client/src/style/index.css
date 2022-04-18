@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  padding: 2em 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 97vw;
+  height: 500px;
+  border-radius: 10px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.wrapper {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-snap-align: center;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  grid-column: content;
+  overscroll-behavior-x: contain;
+}
