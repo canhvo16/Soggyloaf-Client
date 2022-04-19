@@ -23,7 +23,7 @@ code {
   scroll-snap-align: start;
   flex-shrink: 0;
   width: 97vw;
-  height: 500px;
+  height: 450px;
   border-radius: 10px;
   transform-origin: center center;
   transform: scale(1);
@@ -43,4 +43,31 @@ code {
   -webkit-overflow-scrolling: touch;
   grid-column: content;
   overscroll-behavior-x: contain;
+  background: rgb(47, 45, 45);
+}
+
+.animeCard {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: rgb(47, 45, 45);
+  padding: 20px;
+}
+
+.animeImg {
+  width: 190px;
+  height: auto;
+  -webkit-box-reflect: below 5px
+		linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+}
+
+.animeTitle {
+  font-size: 20px;
+}
+
+.space {
+  margin: auto;
+  margin-bottom: 10px;
 }

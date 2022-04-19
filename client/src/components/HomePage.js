@@ -10,14 +10,16 @@ const Home = () => {
   }, [])
 
   return (
-    <section className="container">
-      <div className="wrapper">
-        <h1>Anime List</h1>
-        {topAnimes.map(anime => (
-          <AnimeCard key={anime.id} {...anime} />
-        ))}
-      </div>
-    </section>
+    <div>
+      <h1> Most Popular </h1>
+      <section className="container">
+        <div className="wrapper">
+          {topAnimes.map(anime => (
+            <AnimeCard key={anime.id} {...anime} />
+          ))}
+        </div>
+      </section>
+    </div>
   )
 }
 
