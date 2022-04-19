@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getTopAnimes = async callback => {
+const getTopAnimes = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -81,12 +81,12 @@ const getAnimeDetails = async (callback, id) => {
     data: {
       query: query
     }
-  }).then(res => {
+  }).then((res) => {
     callback(res.data.data.Media)
   })
 }
 
-const getRomanceAnime = async callback => {
+const getRomanceAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -111,7 +111,6 @@ const getRomanceAnime = async callback => {
     }
   })
   callback(res.data.data.Page.media)
-  console.log(res.data.data)
 }
 
 export { getTopAnimes, searchAnimes, getAnimeDetails, getRomanceAnime }
