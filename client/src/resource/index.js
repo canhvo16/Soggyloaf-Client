@@ -90,7 +90,7 @@ const getRomanceAnime = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
-        media(genre_in: "Romance" sort: POPULARITY_DESC) {
+        media(genre_in: "Romance" genre_not_in: "Action" sort: POPULARITY_DESC) {
           id
           title {
             english,
