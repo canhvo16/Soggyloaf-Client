@@ -40,6 +40,17 @@ const Home = () => {
           </div>
         </section>
       </div>
+
+      <div>
+        <h1 className="carouselTitle"> Got Some Time? </h1>
+        <section className="container">
+          <div className="wrapper romance">
+            {longAnimes.map(anime => (
+              <AnimeCard key={anime.id} {...anime} />
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   )
 }

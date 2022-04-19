@@ -118,7 +118,7 @@ const getLongAnime = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
-        media(episodes_greater: 300) {
+        media(type: ANIME episodes_greater: 100 sort: POPULARITY_DESC) {
           id
           title {
             english,
