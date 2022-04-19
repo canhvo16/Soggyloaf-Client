@@ -24,7 +24,7 @@ const AnimeDetails = ({ user }) => {
     : (title = 'Episodes')
 
   const onClick = () => {
-    addToList(user.id, animeDetails.id)
+    addToList(user.id, id)
   }
 
   return (

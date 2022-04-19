@@ -50,7 +50,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/anime/:id" element={<AnimeDetails user={user} />} />
         <Route path="/" element={<PrivateOutlet />}>
-          <Route path="/playlist" element={<PlayList />} />
+          <Route path="/playlist" element={<PlayList user={user} />} />
           <Route
             path="/profile/:id"
             element={<ProfilePage user={user} setUser={setUser} />}
