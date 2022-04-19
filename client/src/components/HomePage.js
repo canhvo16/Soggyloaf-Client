@@ -15,7 +15,7 @@ const Home = () => {
   })
 
   return (
-    <div>
+    <div className="scroll">
       <h1 className="carouselTitle"> Most Popular </h1>
       <section className="container">
         <div className="wrapper">
@@ -28,7 +28,7 @@ const Home = () => {
       <div>
         <h1 className="carouselTitle"> Romance </h1>
         <section className="container">
-          <div className="wrapper">
+          <div className="wrapper romance">
             {romAnimes.map(anime => (
               <AnimeCard key={anime.id} {...anime} />
             ))}

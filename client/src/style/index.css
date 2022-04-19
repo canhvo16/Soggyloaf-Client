@@ -22,7 +22,7 @@ code {
 .container > div {
   scroll-snap-align: start;
   flex-shrink: 0;
-  width: 97vw;
+  width: 60vw;
   height: 450px;
   border-radius: 10px;
   transform-origin: center center;
@@ -52,7 +52,7 @@ code {
   flex-direction: column;
   box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
   border-radius: 1em;
-  background: rgb(47, 45, 45);
+  background: transparent;
   padding: 20px;
 }
 
@@ -114,4 +114,22 @@ code {
   display: flex;
   flex-wrap: wrap;
   gap: 3px;
+}
+
+body {
+  background:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b40a618-67e4-4a24-93c7-ab80b05d08bb/d5gxz2t-14877ed3-a354-469c-a6ac-4e6cafb0d21b.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdiNDBhNjE4LTY3ZTQtNGEyNC05M2M3LWFiODBiMDVkMDhiYlwvZDVneHoydC0xNDg3N2VkMy1hMzU0LTQ2OWMtYTZhYy00ZTZjYWZiMGQyMWIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.gPps9K5ApmzV4bnHtlCX1roGODLqW74sF1UyTDFPxOM") left repeat-y,url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b40a618-67e4-4a24-93c7-ab80b05d08bb/d5mmdw5-a22be159-c8b0-4624-a1c2-7306d836b796.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzdiNDBhNjE4LTY3ZTQtNGEyNC05M2M3LWFiODBiMDVkMDhiYlwvZDVtbWR3NS1hMjJiZTE1OS1jOGIwLTQ2MjQtYTFjMi03MzA2ZDgzNmI3OTYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.qGIfRhT_KRLtnniZTX1yFw9OO2oVC3vuhocEOsZ66fs") right repeat-y;
+  background-size: 20vw;
+  background-attachment: fixed;
+}
+
+section {
+  width: 60vw;
+  margin: auto;
+  background-color: white;
+}
+
+.scroll {
+  background-color: white;
+  width: 64vw;
+  margin: auto;
 }
