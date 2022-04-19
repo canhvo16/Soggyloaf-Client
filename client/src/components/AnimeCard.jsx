@@ -12,7 +12,7 @@ const AnimeCard = ({ id, title, popularity, coverImage }) => {
       <div className='space'>
       <h2 className='animeTitle'>{title.userPerferred || title.english}</h2>
       </div>
-      <img className='animeImg' src={coverImage.medium} alt={title.english} />
+      <img className='animeImg' src={coverImage.large} alt={title.english} />
     </div>
   )
 }

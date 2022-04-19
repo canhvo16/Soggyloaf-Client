@@ -24,7 +24,7 @@ const AnimeDetails = () => {
 
   return (
     <div>
-      <h1>{title}</h1>
+      <h1 className="episodetitle">{title}</h1>
       <div className="animeDetails">{animes}</div>
     </div>
   )
