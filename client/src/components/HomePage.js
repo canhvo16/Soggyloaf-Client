@@ -23,19 +23,10 @@ const Home = () => {
 
   useEffect(() => {
     getTopAnimes(setTopAnimes)
-  }, [])
-
-  useEffect(() => {
     getRomanceAnime(setRomAnimes)
-  })
-
-  useEffect(() => {
     getLongAnime(setLongAnimes)
-  })
-
-  useEffect(() => {
     getNewAnime(setNewAnimes)
-  })
+  }, [])
 
   useEffect(() => {
     watchList.forEach((anime) => getAnimeDetails(setSlideshow, anime))
