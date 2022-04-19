@@ -12,6 +12,7 @@ export const getPlaylist = async (id) => {
 
 export const addToList = async (userId, animeRefId) => {
   try {
+    console.log(userId)
     const playList = await Client.post(`/watchlist`, userId, animeRefId)
     return playList
   }
