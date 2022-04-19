@@ -1,6 +1,7 @@
 import React from 'react'
 
-const PlayList = () => {
+const PlayList = ({ id }) => {
+
   return (
     <div>PlayList</div>
   )

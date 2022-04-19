@@ -22,7 +22,6 @@ function App() {
 
   const checkToken = async () => {
     const user = await CheckSession()
-    console.log(user)
     setUser(user)
   }
 
@@ -51,7 +50,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/:id" element={<AnimeDetails />} />
         <Route path="/" element={<PrivateOutlet />}>
-          <Route path="/playlist" element={<PlayList />} />
+          <Route path="/playlist" element={<PlayList user={user} />} />
           <Route path="/profile" element={<ProfilePage user={user} />} />
         </Route>
       </Routes>
