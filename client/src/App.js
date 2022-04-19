@@ -17,12 +17,11 @@ function App() {
   const [user, setUser] = useState(null)
 
   const PrivateOutlet = () => {
-    return user ? <Outlet /> : <Navigate to="/login" />
+    return user ? <Outlet /> : <Navigate to="/" />
   }
 
   const checkToken = async () => {
     const user = await CheckSession()
-    console.log(user)
     setUser(user)
   }
 
@@ -49,10 +48,13 @@ function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
-        <Route path="/:id" element={<AnimeDetails />} />
+        <Route path="/anime/:id" element={<AnimeDetails />} />
         <Route path="/" element={<PrivateOutlet />}>
           <Route path="/playlist" element={<PlayList />} />
-          <Route path="/profile" element={<ProfilePage user={user} />} />
+          <Route
+            path="/profile/:id"
+            element={<ProfilePage user={user} setUser={setUser} />}
+          />
         </Route>
       </Routes>
     </div>
