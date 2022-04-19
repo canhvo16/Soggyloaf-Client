@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getTopAnimes = async callback => {
+const getTopAnimes = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -12,7 +12,7 @@ const getTopAnimes = async callback => {
           }
           popularity
           coverImage {
-            medium
+            large
           }
         }
       }
@@ -40,7 +40,7 @@ const searchAnimes = async (callback, search) => {
         }
         popularity
           coverImage {
-          medium
+          large
         }
       }
     }
@@ -65,7 +65,7 @@ const getAnimeDetails = async (callback, id) => {
         userPreferred
       }
       coverImage {
-        medium
+        large
       }
       streamingEpisodes {
         title,
@@ -81,7 +81,7 @@ const getAnimeDetails = async (callback, id) => {
     data: {
       query: query
     }
-  }).then(res => {
+  }).then((res) => {
     callback(res.data.data.Media)
   })
 }
@@ -106,23 +106,23 @@ const getAnime = (id) => {
     data: {
       query: query
     }
-  }).then(res => {
+  }).then((res) => {
     return res.data.data.Media
   })
 }
 
-const getRomanceAnime = async callback => {
+const getRomanceAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
-        media(genre_in: "Romance" genre_not_in: "Action" sort: POPULARITY_DESC) {
+        media(genre_in: "Romance" genre_not_in: "Action" episodes_greater: 1 sort: POPULARITY_DESC) {
           id
           title {
             english,
             userPreferred
           }
           coverImage {
-            medium
+            large
           }
         }
       }
@@ -138,4 +138,67 @@ const getRomanceAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-export { getTopAnimes, searchAnimes, getAnimeDetails, getRomanceAnime, getAnime }
+const getLongAnime = async (callback) => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(type: ANIME episodes_greater: 100 sort: POPULARITY_DESC) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+  console.log(res.data.data)
+}
+
+const getNewAnime = async (callback) => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(type: ANIME startDate_greater: 20220000 episodes_greater: 1 sort: POPULARITY_DESC) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+  console.log(res.data.data)
+}
+
+export {
+  getTopAnimes,
+  searchAnimes,
+  getAnimeDetails,
+  getRomanceAnime,
+  getLongAnime,
+  getNewAnime
+}

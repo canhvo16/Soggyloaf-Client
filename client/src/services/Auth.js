@@ -54,3 +54,12 @@ export const DestroyAccount = async (id) => {
     throw error
   }
 }
+
+export const GetUser = async (id) => {
+  try {
+    const res = await Client.get(`/auth/user/${id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
