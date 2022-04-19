@@ -1,16 +1,25 @@
 import React from 'react'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
-const EpisodeCard = ({ id, title, thumbnail, episode }) => {
-  // const navigate = useNavigate()
-  // const onClick = () => {
-  //   navigate(`/${id}episode/${episode}`)
-  // }
+const EpisodeCard = ({ title, thumbnail, url }) => {
+  const navigate = useNavigate()
+  const onClick = () => {
+    window.location.href = `${url}`;
+  }
+  
   return (
-    <button className='episodeCard'>
-      <h2>{title}</h2>
-      <img src={thumbnail} alt={title} />
-    </button>
+    <div className='epcontainer' onClick={() => onClick()}>
+      <div id="container">
+      <div class="card">
+        <div class="cardImgBox">
+          <img src={thumbnail} alt={title} class="cardImage" width="450" />
+        </div>
+        <div class="cardBody">
+          <h4>{title}</h4>
+        </div>
+      </div>
+      </div>
+    </div>
   )
 }
 

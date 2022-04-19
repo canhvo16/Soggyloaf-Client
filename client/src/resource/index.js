@@ -31,20 +31,20 @@ const getTopAnimes = async callback => {
 const searchAnimes = async (callback, search) => {
   const query = `
     query {
-      Page(perPage: 20) {
-        media(type: ANIME, sort: POPULARITY_DESC, search: "${search}") {
-          id
+    Page(perPage: 20) {
+      media(type: ANIME, sort: POPULARITY_DESC, search: "${search}") {
+        id
           title {
-            english,
+          english,
             userPreferred
-          }
-          popularity
+        }
+        popularity
           coverImage {
-            medium
-          }
+          medium
         }
       }
     }
+  }
   `
   const res = await axios({
     url: 'https://graphql.anilist.co/',
@@ -56,7 +56,7 @@ const searchAnimes = async (callback, search) => {
   callback(res.data.data.Page.media)
 }
 
-const getAnimeDetails = (callback, id) => {
+const getAnimeDetails = async (callback, id) => {
   const query = `
   query {
     Media(id: ${id} ){
@@ -75,16 +75,67 @@ const getAnimeDetails = (callback, id) => {
     }
   }
   `
-  axios({
+  await axios({
     url: 'https://graphql.anilist.co/',
     method: 'post',
     data: {
       query: query
     }
   }).then(res => {
-    console.log(res.data.data.Media)
     callback(res.data.data.Media)
   })
 }
 
-export { getTopAnimes, searchAnimes, getAnimeDetails }
+const getAnime = (id) => {
+  const query = `
+  query {
+    Media(id: ${id} ){
+      title {
+        english,
+        userPreferred
+      }
+      coverImage {
+        medium
+      }
+    }
+  }
+  `
+  return axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  }).then(res => {
+    return res.data.data.Media
+  })
+}
+
+const getRomanceAnime = async callback => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(genre_in: "Romance" genre_not_in: "Action" sort: POPULARITY_DESC) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            medium
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+}
+
+export { getTopAnimes, searchAnimes, getAnimeDetails, getRomanceAnime, getAnime }

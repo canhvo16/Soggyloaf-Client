@@ -27,3 +27,30 @@ export const CheckSession = async () => {
     throw error
   }
 }
+
+export const UpdatePassword = async (body) => {
+  try {
+    const res = await Client.put('/auth/update-password', body)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const UpdateName = async (body) => {
+  try {
+    const res = await Client.put('/auth/update-name', body)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const DestroyAccount = async (id) => {
+  try {
+    const res = await Client.delete(`/auth/destroy/${id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

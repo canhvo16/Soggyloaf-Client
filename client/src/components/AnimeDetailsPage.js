@@ -2,28 +2,35 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { getAnimeDetails } from '../resource'
 import { useParams } from 'react-router'
-import EpisodeCard from './EpisodeCard'
+import EpisodeCard from './EpisodeCard.jsx'
+import { addToList } from '../services/Playlist'
 
-//anime details should get data from back end, not props
-const AnimeDetails = () => {
+const AnimeDetails = ({ user }) => {
   const { id } = useParams()
-  const [animeDetails, setAnimeDetails] = useState([])
+  const [animeDetails, setAnimeDetails] = useState({})
 
   useEffect(() => {
-    //axios get data from back end
     getAnimeDetails(setAnimeDetails, id)
   }, [])
-  console.log(animeDetails.streamingEpisodes)
 
   let animes = animeDetails.streamingEpisodes
-    ? animeDetails.streamingEpisodes.map((anime, index) => (
-        <EpisodeCard key={index} {...anime} />
-      ))
+    ? animeDetails.streamingEpisodes.map((episode, index) => (
+      <EpisodeCard key={index} {...episode} />
+    ))
     : null
+
+  let title = animeDetails.title
+    ? (title = animeDetails.title.english)
+    : (title = 'Episodes')
+
+  const onClick = () => {
+    addToList(user.id, id)
+  }
 
   return (
     <div className="animeDetails">
-      <h1>Episodes</h1>
+      <h1>{title}</h1>
+      <button onClick={onClick} disabled={user ? false : true}>Add to List</button>
       {animes}
     </div>
   )
