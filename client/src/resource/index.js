@@ -90,7 +90,7 @@ const getRomanceAnime = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
-        media(genre_in: "Romance" genre_not_in: "Action" sort: POPULARITY_DESC) {
+        media(genre_in: "Romance" genre_not_in: "Action" episodes_greater: 1 sort: POPULARITY_DESC) {
           id
           title {
             english,
@@ -114,4 +114,38 @@ const getRomanceAnime = async callback => {
   console.log(res.data.data)
 }
 
-export { getTopAnimes, searchAnimes, getAnimeDetails, getRomanceAnime }
+const getLongAnime = async callback => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(episodes_greater: 300) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            medium
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+  console.log(res.data.data)
+}
+
+export {
+  getTopAnimes,
+  searchAnimes,
+  getAnimeDetails,
+  getRomanceAnime,
+  getLongAnime
+}

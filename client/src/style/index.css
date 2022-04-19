@@ -22,7 +22,7 @@ code {
 .container > div {
   scroll-snap-align: start;
   flex-shrink: 0;
-  width: 60vw;
+  width: 64vw;
   height: 450px;
   border-radius: 10px;
   transform-origin: center center;
@@ -75,14 +75,13 @@ code {
 .carouselTitle {
   text-align: center;
   margin: auto;
-  margin-top: 10px;
 }
 
 #container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 700px;
+  max-width: 375px;
   margin-block: 2rem;
   gap: 2rem;
 }
@@ -114,6 +113,9 @@ code {
   display: flex;
   flex-wrap: wrap;
   gap: 3px;
+  margin:auto;
+  justify-content: center;
+  width: 75vw;
 }
 
 body {
@@ -123,7 +125,7 @@ body {
 }
 
 section {
-  width: 60vw;
+  width: 64vw;
   margin: auto;
   background-color: white;
 }
@@ -131,5 +133,10 @@ section {
 .scroll {
   background-color: white;
   width: 64vw;
+  margin: auto;
+}
+
+.episodetitle {
+  text-align: center;
   margin: auto;
 }

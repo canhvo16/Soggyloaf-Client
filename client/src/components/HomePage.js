@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import AnimeCard from './AnimeCard'
-import { getRomanceAnime, getTopAnimes } from '../resource'
+import { getLongAnime, getRomanceAnime, getTopAnimes } from '../resource'
 
 const Home = () => {
   const [topAnimes, setTopAnimes] = useState([])
   const [romAnimes, setRomAnimes] = useState([])
+  const [longAnimes, setLongAnimes] = useState([])
 
   useEffect(() => {
     getTopAnimes(setTopAnimes)
@@ -12,6 +13,10 @@ const Home = () => {
 
   useEffect(() => {
     getRomanceAnime(setRomAnimes)
+  })
+
+  useEffect(() => {
+    getLongAnime(setLongAnimes)
   })
 
   return (
