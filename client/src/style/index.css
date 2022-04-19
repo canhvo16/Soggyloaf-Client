@@ -17,12 +17,13 @@ code {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  border-bottom: 2px solid grey;
 }
 
 .container > div {
   scroll-snap-align: start;
   flex-shrink: 0;
-  width: 64vw;
+  width: 58vw;
   height: 450px;
   border-radius: 10px;
   transform-origin: center center;
@@ -73,8 +74,11 @@ code {
 }
 
 .carouselTitle {
-  text-align: center;
+  text-align: start left;
   margin: auto;
+  margin-left: 55px;
+  margin-bottom: 0px;
+  color: white;
 }
 
 #container {
@@ -127,13 +131,14 @@ body {
 section {
   width: 64vw;
   margin: auto;
-  background-color: white;
+  background-color: rgb(31, 29, 29);
 }
 
 .scroll {
   background-color: white;
   width: 64vw;
   margin: auto;
+  background-color: rgb(31, 29, 29);
 }
 
 .episodetitle {
