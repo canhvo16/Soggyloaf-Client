@@ -5,7 +5,7 @@ const AnimeCard = ({ id, title, popularity, coverImage }) => {
   const navigate = useNavigate()
 
   const showDetails = id => {
-    navigate(`/${id}`)
+    navigate(`/anime/${id}`)
   }
   return (
     <div className='animeCard' onClick={() => showDetails(id)}>
