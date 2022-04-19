@@ -1,9 +1,15 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { DestroyAccount, UpdateName, UpdatePassword } from '../services/Auth'
+import {
+  DestroyAccount,
+  GetUser,
+  UpdateName,
+  UpdatePassword
+} from '../services/Auth'
 
 const ProfilePage = ({ user, setUser }) => {
+  const [profile, setProfile] = useState({})
   const [showPasswordEditor, togglePasswordEditor] = useState(false)
   const [showNameEditor, toggleNameEditor] = useState(false)
   const [passwordEditor, setPasswordEditor] = useState({
@@ -15,6 +21,14 @@ const ProfilePage = ({ user, setUser }) => {
     email: '',
     name: ''
   })
+
+  useEffect(() => {
+    const currentUser = async () => {
+      const profile = await GetUser(id)
+      setProfile(profile)
+    }
+    currentUser()
+  }, [])
 
   const onChange = (e) => {
     setPasswordEditor({
@@ -126,7 +140,7 @@ const ProfilePage = ({ user, setUser }) => {
 
   return (
     <div>
-      <h1>{user.name}</h1>
+      <h1>{profile.name}</h1>
       <h3>{user.email}</h3>
       <button onClick={togglePasswordForm}>{passwordButton}</button>
       <button onClick={toggleNameForm}>{nameButton}</button>
