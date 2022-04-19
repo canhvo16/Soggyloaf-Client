@@ -71,3 +71,9 @@ code {
   margin: auto;
   margin-bottom: 10px;
 }
+
+.carouselTitle {
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+}

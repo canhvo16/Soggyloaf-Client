@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1> Most Popular </h1>
+      <h1 className='carouselTitle'> Most Popular </h1>
       <section className="container">
         <div className="wrapper">
           {topAnimes.map(anime => (
