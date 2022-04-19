@@ -12,7 +12,7 @@ const getTopAnimes = async callback => {
           }
           popularity
           coverImage {
-            medium
+            large
           }
         }
       }
@@ -40,7 +40,7 @@ const searchAnimes = async (callback, search) => {
         }
         popularity
           coverImage {
-          medium
+          large
         }
       }
     }
@@ -65,7 +65,7 @@ const getAnimeDetails = async (callback, id) => {
         userPreferred
       }
       coverImage {
-        medium
+        large
       }
       streamingEpisodes {
         title,
@@ -97,7 +97,7 @@ const getRomanceAnime = async callback => {
             userPreferred
           }
           coverImage {
-            medium
+            large
           }
         }
       }
@@ -125,7 +125,7 @@ const getLongAnime = async callback => {
             userPreferred
           }
           coverImage {
-            medium
+            large
           }
         }
       }
@@ -153,7 +153,7 @@ const getNewAnime = async callback => {
             userPreferred
           }
           coverImage {
-            medium
+            large
           }
         }
       }
