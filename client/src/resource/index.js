@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getTopAnimes = async callback => {
+const getTopAnimes = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -81,12 +81,37 @@ const getAnimeDetails = async (callback, id) => {
     data: {
       query: query
     }
-  }).then(res => {
+  }).then((res) => {
     callback(res.data.data.Media)
   })
 }
 
-const getRomanceAnime = async callback => {
+const getAnime = (id) => {
+  const query = `
+  query {
+    Media(id: ${id} ){
+      title {
+        english,
+        userPreferred
+      }
+      coverImage {
+        medium
+      }
+    }
+  }
+  `
+  return axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  }).then((res) => {
+    return res.data.data.Media
+  })
+}
+
+const getRomanceAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -113,7 +138,7 @@ const getRomanceAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getLongAnime = async callback => {
+const getLongAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -140,7 +165,7 @@ const getLongAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getNewAnime = async callback => {
+const getNewAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
