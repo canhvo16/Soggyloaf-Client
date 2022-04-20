@@ -1,6 +1,6 @@
 import React from "react"
 
-const WattchListSlideshow = () => {
+const WatchListSlideShow = () => {
   return (
     <div>
       <div>idx/array.length</div>
@@ -10,4 +10,4 @@ const WattchListSlideshow = () => {
   )
 }
 
-export default WattchListSlideshow
+export default WatchListSlideShow

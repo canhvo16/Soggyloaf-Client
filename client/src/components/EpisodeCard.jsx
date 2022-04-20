@@ -1,8 +1,6 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const EpisodeCard = ({ title, thumbnail, url }) => {
-  const navigate = useNavigate()
   const onClick = () => {
     window.location.href = `${url}`;
   }

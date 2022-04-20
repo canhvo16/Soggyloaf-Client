@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import AnimeCard from './AnimeCard'
+import WatchListSlideShow from './WatchListSlideShow'
 import {
   getLongAnime,
   getNewAnime,
   getRomanceAnime,
   getTopAnimes,
-  getAnimeDetails
+  getAnime
 } from '../resource'
+import { getPlaylist } from '../services/Playlist'
 
-const Home = () => {
+const Home = ({ user }) => {
   const [topAnimes, setTopAnimes] = useState([])
   const [romAnimes, setRomAnimes] = useState([])
   const [longAnimes, setLongAnimes] = useState([])
   const [newAnimes, setNewAnimes] = useState([])
 
-  const watchList = [16498, 113717, 1735, 269, 113415, 21459]
-  const [slideshow, setSlideshow] = useState([])
+  useEffect(() => {
+    fetchPlayList()
+  }, [])
+  console.log(user)
+  let userId = user.id
 
-  const addToSlideshow = () => {
-    setSlideshow(...slideshow)
+  const [playlist, setPlaylist] = useState([])
+
+  const fetchPlayList = async () => {
+    const list = await getPlaylist(userId)
+    const promises = list
+      .filter((anime) => anime.animeRefId)
+      .map((anime) => getAnime(anime.animeRefId))
+    const animes = await Promise.all(promises)
+    setPlaylist(animes)
   }
 
   useEffect(() => {
@@ -28,13 +40,21 @@ const Home = () => {
     getNewAnime(setNewAnimes)
   }, [])
 
-  useEffect(() => {
-    watchList.forEach((anime) => getAnimeDetails(setSlideshow, anime))
-    console.log(slideshow)
-  }, [])
+  let watchlist = playlist
+    ? playlist.map((anime) => <WatchListSlideShow key={anime.id} {...anime} />)
+    : null
 
   return (
     <div className="scroll">
+      <div>
+        <h1 className="carouselTitle"> On Your Watch List </h1>
+        <section className="container">
+          <div className="wrapper">{watchlist}</div>
+        </section>
+        <button>Previous</button>
+        <button>Next</button>
+      </div>
+
       <h1 className="carouselTitle"> Most Popular </h1>
       <section className="container">
         <div className="wrapper">

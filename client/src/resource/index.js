@@ -86,7 +86,7 @@ const getAnimeDetails = async (callback, id) => {
   })
 }
 
-const getAnime = (id) => {
+const getAnime = async (id) => {
   const query = `
   query {
     Media(id: ${id} ){
@@ -97,10 +97,11 @@ const getAnime = (id) => {
       coverImage {
         medium
       }
+      description
     }
   }
   `
-  return axios({
+  return await axios({
     url: 'https://graphql.anilist.co/',
     method: 'post',
     data: {
@@ -198,5 +199,6 @@ export {
   getAnimeDetails,
   getRomanceAnime,
   getLongAnime,
-  getNewAnime
+  getNewAnime,
+  getAnime
 }

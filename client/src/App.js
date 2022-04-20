@@ -49,7 +49,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
         <Route path="/anime/:id" element={<AnimeDetails user={user} />} />
-        <Route path="/" element={<PrivateOutlet />}>
+        <Route path="/" element={<PrivateOutlet user={user} />}>
           <Route path="/playlist" element={<PlayList user={user} />} />
           <Route
             path="/profile/:id"
