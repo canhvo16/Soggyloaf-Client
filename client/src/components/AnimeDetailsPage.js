@@ -13,7 +13,7 @@ const AnimeDetails = ({ user }) => {
     getAnimeDetails(setAnimeDetails, id)
   }, [])
 
-  let Episodes = animeDetails.streamingEpisodes
+  let episodes = animeDetails.streamingEpisodes
     ? animeDetails.streamingEpisodes.map((episode, index) => (
       <EpisodeCard key={index} {...episode} />
     ))
@@ -23,16 +23,42 @@ const AnimeDetails = ({ user }) => {
     ? (title = animeDetails.title.english)
     : (title = 'Episodes')
 
+  let description = animeDetails.description
+    ? (description = animeDetails.description)
+    : (description = 'description')
+
+  let coverImage = animeDetails.coverImage
+    ? (coverImage = animeDetails.coverImage.large)
+    : (coverImage = 'image')
+
   const onClick = () => {
     addToList(user.id, id)
   }
 
   return (
-    <div className='animeComponent'>
-      <button onClick={onClick} disabled={user ? false : true}> Add to List </button>
-      <h1 className="episodetitle">{title}</h1>
-      <div className="animeDetails">{Episodes}</div>
+
+    <div className="card1">
+
+      <div class="cardLeft">
+        <img src={coverImage} alt={title} class="cardImage" width="450" />
+      </div>
+
+      <div class="cardRight">
+        <h4 className="title1">{title}</h4>
+        <p className="description1">{description}</p>
+        <button
+          className="addToWatchlist"
+          onClick={onClick}
+          disabled={user ? false : true}
+        ></button>
+      </div>
+
+      <div>
+        <div className="animeDetails">{episodes}</div>
+      </div>
+
     </div>
+
   )
 }
 
