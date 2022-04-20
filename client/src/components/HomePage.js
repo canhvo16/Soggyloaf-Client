@@ -55,51 +55,69 @@ const Home = () => {
     <div className="scroll">
       <h1 className="carouselTitle"> Most Popular </h1>
       <section className="container">
+        <button id="carouselButtonLeft" onClick={() => scroll(-450)}></button>
         <div className="wrapper" ref={ref}>
           {topAnimes.map(anime => (
             <AnimeCard key={anime.id} {...anime} />
           ))}
         </div>
-        <button onClick={() => scroll(-380)}>left</button>
-        <button onClick={() => scroll(380)}>right</button>
+        <button id="carouselButtonRight" onClick={() => scroll(450)}></button>
       </section>
 
       <div>
         <h1 className="carouselTitle"> Recently Added To SoggyLoaf </h1>
         <section className="container">
+          <button
+            id="carouselButtonLeft"
+            onClick={() => scroll1(-450)}
+          ></button>
           <div className="wrapper romance" ref={ref1}>
             {newAnimes.map(anime => (
               <AnimeCard key={anime.id} {...anime} />
             ))}
           </div>
-          <button onClick={() => scroll1(-380)}>left</button>
-          <button onClick={() => scroll1(380)}>right</button>
+          <button
+            id="carouselButtonRight"
+            onClick={() => scroll1(450)}
+          ></button>
         </section>
       </div>
 
       <div>
         <h1 className="carouselTitle"> Romance </h1>
         <section className="container">
+          <button
+            id="carouselButtonLeft"
+            onClick={() => scroll2(-450)}
+          ></button>
           <div className="wrapper" ref={ref2}>
             {romAnimes.map(anime => (
               <AnimeCard key={anime.id} {...anime} />
             ))}
           </div>
-          <button onClick={() => scroll2(-380)}>left</button>
-          <button onClick={() => scroll2(380)}>right</button>
+          <button
+            id="carouselButtonRight"
+            onClick={() => scroll2(450)}
+          ></button>
         </section>
       </div>
 
       <div>
         <h1 className="carouselTitle"> Got Some Time? </h1>
         <section className="container">
+          <button
+            id="carouselButtonLeft"
+            onClick={() => scroll3(-450)}
+          ></button>
           <div className="wrapper romance" ref={ref3}>
             {longAnimes.map(anime => (
               <AnimeCard key={anime.id} {...anime} />
             ))}
           </div>
-          <button onClick={() => scroll3(-380)}>left</button>
-          <button onClick={() => scroll3(380)}>right</button>
+          <button
+            id="carouselButtonRight"
+            onClick={() => scroll3(450)}
+          ></button>
         </section>
       </div>
     </div>

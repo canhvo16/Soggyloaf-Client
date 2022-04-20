@@ -145,3 +145,23 @@ section {
   text-align: center;
   margin: auto;
 }
+
+#carouselButtonLeft {
+  opacity: .5;
+  height: 80px;
+  width: 60px;
+  margin: auto;
+  background-image: url('https://www.pngkey.com/png/detail/423-4232983_how-to-set-use-left-grey-arrow-svg.png');
+  background-size: 100% 75px;
+}
+
+#carouselButtonRight {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  opacity: .5;
+  height: 80px;
+  width: 60px;
+  margin: auto;
+  background-image: url('https://www.pngkey.com/png/detail/423-4232983_how-to-set-use-left-grey-arrow-svg.png');
+  background-size: 100% 75px;
+}
