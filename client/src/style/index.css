@@ -165,3 +165,8 @@ section {
   background-image: url('https://www.pngkey.com/png/detail/423-4232983_how-to-set-use-left-grey-arrow-svg.png');
   background-size: 100% 75px;
 }
+
+.animeCard:hover {
+  color: goldenrod;
+  transition: 1s;
+}

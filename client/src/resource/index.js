@@ -111,7 +111,6 @@ const getRomanceAnime = async callback => {
     }
   })
   callback(res.data.data.Page.media)
-  console.log(res.data.data)
 }
 
 const getLongAnime = async callback => {
@@ -139,7 +138,6 @@ const getLongAnime = async callback => {
     }
   })
   callback(res.data.data.Page.media)
-  console.log(res.data.data)
 }
 
 const getNewAnime = async callback => {
@@ -167,7 +165,6 @@ const getNewAnime = async callback => {
     }
   })
   callback(res.data.data.Page.media)
-  console.log(res.data.data)
 }
 
 export {
