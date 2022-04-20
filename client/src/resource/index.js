@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getTopAnimes = async (callback) => {
+const getTopAnimes = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -67,6 +67,7 @@ const getAnimeDetails = async (callback, id) => {
       coverImage {
         large
       }
+      description
       streamingEpisodes {
         title,
         thumbnail,
@@ -81,12 +82,13 @@ const getAnimeDetails = async (callback, id) => {
     data: {
       query: query
     }
-  }).then((res) => {
+  }).then(res => {
     callback(res.data.data.Media)
+    console.log(res.data.data.Media)
   })
 }
 
-const getAnime = (id) => {
+const getAnime = id => {
   const query = `
   query {
     Media(id: ${id} ){
@@ -106,12 +108,12 @@ const getAnime = (id) => {
     data: {
       query: query
     }
-  }).then((res) => {
+  }).then(res => {
     return res.data.data.Media
   })
 }
 
-const getRomanceAnime = async (callback) => {
+const getRomanceAnime = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -138,7 +140,7 @@ const getRomanceAnime = async (callback) => {
   callback(res.data.data.Page.media)
 }
 
-const getLongAnime = async (callback) => {
+const getLongAnime = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -165,11 +167,38 @@ const getLongAnime = async (callback) => {
   callback(res.data.data.Page.media)
 }
 
-const getNewAnime = async (callback) => {
+const getNewAnime = async callback => {
   const query = `
     query { 
       Page(perPage: 100) {
         media(type: ANIME startDate_greater: 20220000 episodes_greater: 1 sort: POPULARITY_DESC) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+}
+
+const getIsekais = async callback => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(type: ANIME tag: "Isekai" episodes_greater: 1 sort: POPULARITY_DESC) {
           id
           title {
             english,
@@ -198,5 +227,7 @@ export {
   getAnimeDetails,
   getRomanceAnime,
   getLongAnime,
-  getNewAnime
+  getNewAnime,
+  getIsekais,
+  getAnime
 }
