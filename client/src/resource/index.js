@@ -200,5 +200,6 @@ export {
   getAnimeDetails,
   getRomanceAnime,
   getLongAnime,
-  getNewAnime
+  getNewAnime,
+  getAnime
 }
