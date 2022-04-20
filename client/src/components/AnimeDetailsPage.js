@@ -37,14 +37,6 @@ const AnimeDetails = ({ user }) => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <button onClick={onClick} disabled={user ? false : true}>
-        Add to List
-      </button>
-      <div>
-        <h1 className="episodetitle">{title}</h1>
-        <div className="animeDetails">{episodes}</div>
-=======
       <div className="card1">
         <div class="cardLeft">
           <img src={coverImage} alt={title} class="cardImage" width="450" />
@@ -60,8 +52,7 @@ const AnimeDetails = ({ user }) => {
         </div>
       </div>
       <div>
-        <div className="animeDetails">{animes}</div>
->>>>>>> e4607b87ed23e21e49230469ad6be576715b170c
+        <div className="animeDetails">{episodes}</div>
       </div>
     </div>
   )

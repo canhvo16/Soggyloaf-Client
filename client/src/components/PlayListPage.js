@@ -3,7 +3,6 @@ import AnimeCard from './AnimeCard'
 
 const PlayList = ({ playlist, fetchPlayList }) => {
   useEffect(() => {
-    console.log('playlist useEffect')
     if (!playlist) {
       fetchPlayList()
     }
