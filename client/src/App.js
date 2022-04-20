@@ -32,7 +32,6 @@ function App() {
       .map((anime) => getAnime(anime.animeRefId))
     const animes = await Promise.all(promises)
     setPlaylist(animes)
-    console.log(animes)
   }
 
   const PrivateOutlet = () => {

@@ -47,20 +47,10 @@ const Home = ({ user }) => {
     getRomanceAnime(setRomAnimes)
     getLongAnime(setLongAnimes)
     getNewAnime(setNewAnimes)
-<<<<<<< HEAD
-  }, [])
-
-  // let watchlist = playlist
-  //   ? playlist.map((anime) => <WatchListSlideShow key={anime.id} {...anime} />)
-  //   : null
-
-  const scroll = (scrollOffset) => {
-=======
     getIsekais(setIsekai)
   })
 
-  const scroll = scrollOffset => {
->>>>>>> e4607b87ed23e21e49230469ad6be576715b170c
+  const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset
   }
 
@@ -76,7 +66,7 @@ const Home = ({ user }) => {
     ref3.current.scrollLeft += scrollOffset
   }
 
-  const scroll4 = scrollOffset => {
+  const scroll4 = (scrollOffset) => {
     ref4.current.scrollLeft += scrollOffset
   }
 
@@ -167,7 +157,7 @@ const Home = ({ user }) => {
             onClick={() => scroll4(-500)}
           ></button>
           <div className="wrapper romance" ref={ref4}>
-            {isekai.map(anime => (
+            {isekai.map((anime) => (
               <AnimeCard key={anime.id} {...anime} />
             ))}
           </div>
