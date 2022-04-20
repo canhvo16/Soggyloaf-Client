@@ -115,7 +115,7 @@ const getRomanceAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
-        media(genre_in: "Romance" genre_not_in: "Action" episodes_greater: 1 sort: POPULARITY_DESC) {
+        media(type: ANIME genre_in: "Romance" genre_not_in: "Action" episodes_greater: 1 sort: POPULARITY_DESC) {
           id
           title {
             english,
@@ -163,7 +163,6 @@ const getLongAnime = async (callback) => {
     }
   })
   callback(res.data.data.Page.media)
-  console.log(res.data.data)
 }
 
 const getNewAnime = async (callback) => {
@@ -191,7 +190,6 @@ const getNewAnime = async (callback) => {
     }
   })
   callback(res.data.data.Page.media)
-  console.log(res.data.data)
 }
 
 export {
