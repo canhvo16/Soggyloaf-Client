@@ -10,6 +10,7 @@ import {
   getAnime
 } from '../resource'
 import { getPlaylist } from '../services/Playlist'
+import WatchListSlideShow from './WatchListSlideshow'
 
 const Home = ({ user }) => {
   const [topAnimes, setTopAnimes] = useState([])
