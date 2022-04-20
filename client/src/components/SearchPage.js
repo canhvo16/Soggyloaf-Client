@@ -9,7 +9,6 @@ const SearchPage = () => {
 
   const onChange = (e) => {
     setSearch(e.target.value)
-    console.log(search)
   }
 
   const onSubmit = (e) => {
