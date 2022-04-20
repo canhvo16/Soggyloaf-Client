@@ -60,6 +60,7 @@ const getAnimeDetails = async (callback, id) => {
   const query = `
   query {
     Media(id: ${id} ){
+      id
       title {
         english,
         userPreferred
@@ -90,12 +91,13 @@ const getAnime = async (id) => {
   const query = `
   query {
     Media(id: ${id} ){
+      id
       title {
         english,
         userPreferred
       }
       coverImage {
-        medium
+        large
       }
       description
     }

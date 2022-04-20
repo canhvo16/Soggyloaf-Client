@@ -12,9 +12,28 @@ import PlayList from './components/PlayListPage'
 import AnimeDetails from './components/AnimeDetailsPage'
 import SearchPage from './components/SearchPage'
 import ProfilePage from './components/ProfilePage'
+import { getAnime } from './resource'
+import { getPlaylist } from './services/Playlist'
 
 function App() {
   const [user, setUser] = useState(null)
+
+  let userId
+  if (user) {
+    userId = user.id
+  }
+
+  const [playlist, setPlaylist] = useState(null)
+
+  const fetchPlayList = async () => {
+    const list = await getPlaylist(userId)
+    const promises = list
+      .filter((anime) => anime.animeRefId)
+      .map((anime) => getAnime(anime.animeRefId))
+    const animes = await Promise.all(promises)
+    setPlaylist(animes)
+    console.log(animes)
+  }
 
   const PrivateOutlet = () => {
     return user ? <Outlet /> : <Navigate to="/" />
@@ -50,7 +69,16 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/anime/:id" element={<AnimeDetails user={user} />} />
         <Route path="/" element={<PrivateOutlet user={user} />}>
-          <Route path="/playlist" element={<PlayList user={user} />} />
+          <Route
+            path="/playlist"
+            element={
+              <PlayList
+                user={user}
+                playlist={playlist}
+                fetchPlayList={fetchPlayList}
+              />
+            }
+          />
           <Route
             path="/profile/:id"
             element={<ProfilePage user={user} setUser={setUser} />}

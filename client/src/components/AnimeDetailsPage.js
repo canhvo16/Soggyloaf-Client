@@ -29,11 +29,9 @@ const AnimeDetails = ({ user }) => {
 
   return (
     <div>
-      <h1>{title}</h1>
       <button onClick={onClick} disabled={user ? false : true}>
         Add to List
       </button>
-      {episodes}
       <div>
         <h1 className="episodetitle">{title}</h1>
         <div className="animeDetails">{episodes}</div>

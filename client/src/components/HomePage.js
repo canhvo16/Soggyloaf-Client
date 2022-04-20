@@ -22,22 +22,22 @@ const Home = ({ user }) => {
   let ref2 = useRef()
   let ref3 = useRef()
 
-  useEffect(() => {
-    fetchPlayList()
-  }, [])
-  console.log(user)
-  let userId = user.id
+  // useEffect(() => {
+  //   fetchPlayList()
+  // }, [])
+  // console.log(user)
+  // let userId = user.id
 
-  const [playlist, setPlaylist] = useState([])
+  // const [playlist, setPlaylist] = useState([])
 
-  const fetchPlayList = async () => {
-    const list = await getPlaylist(userId)
-    const promises = list
-      .filter((anime) => anime.animeRefId)
-      .map((anime) => getAnime(anime.animeRefId))
-    const animes = await Promise.all(promises)
-    setPlaylist(animes)
-  }
+  // const fetchPlayList = async () => {
+  //   const list = await getPlaylist(userId)
+  //   const promises = list
+  //     .filter((anime) => anime.animeRefId)
+  //     .map((anime) => getAnime(anime.animeRefId))
+  //   const animes = await Promise.all(promises)
+  //   setPlaylist(animes)
+  // }
 
   useEffect(() => {
     getTopAnimes(setTopAnimes)
@@ -46,9 +46,9 @@ const Home = ({ user }) => {
     getNewAnime(setNewAnimes)
   }, [])
 
-  let watchlist = playlist
-    ? playlist.map((anime) => <WatchListSlideShow key={anime.id} {...anime} />)
-    : null
+  // let watchlist = playlist
+  //   ? playlist.map((anime) => <WatchListSlideShow key={anime.id} {...anime} />)
+  //   : null
 
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset
@@ -68,14 +68,14 @@ const Home = ({ user }) => {
 
   return (
     <div className="scroll">
-      <div>
+      {/* <div>
         <h1 className="carouselTitle"> On Your Watch List </h1>
         <section className="container">
           <div className="wrapper">{watchlist}</div>
         </section>
         <button>Previous</button>
         <button>Next</button>
-      </div>
+      </div> */}
 
       <h1 className="carouselTitle"> Most Popular </h1>
       <section className="container">
