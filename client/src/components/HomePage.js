@@ -3,6 +3,7 @@ import AnimeCard from './AnimeCard'
 import WatchListSlideShow from './WatchListSlideShow'
 import { useRef } from 'react'
 import {
+  getIsekais,
   getLongAnime,
   getNewAnime,
   getRomanceAnime,
@@ -16,11 +17,13 @@ const Home = ({ user }) => {
   const [romAnimes, setRomAnimes] = useState([])
   const [longAnimes, setLongAnimes] = useState([])
   const [newAnimes, setNewAnimes] = useState([])
+  const [isekai, setIsekai] = useState([])
 
   let ref = useRef()
   let ref1 = useRef()
   let ref2 = useRef()
   let ref3 = useRef()
+  let ref4 = useRef()
 
   // useEffect(() => {
   //   fetchPlayList()
@@ -44,6 +47,7 @@ const Home = ({ user }) => {
     getRomanceAnime(setRomAnimes)
     getLongAnime(setLongAnimes)
     getNewAnime(setNewAnimes)
+<<<<<<< HEAD
   }, [])
 
   // let watchlist = playlist
@@ -51,6 +55,12 @@ const Home = ({ user }) => {
   //   : null
 
   const scroll = (scrollOffset) => {
+=======
+    getIsekais(setIsekai)
+  })
+
+  const scroll = scrollOffset => {
+>>>>>>> e4607b87ed23e21e49230469ad6be576715b170c
     ref.current.scrollLeft += scrollOffset
   }
 
@@ -64,6 +74,10 @@ const Home = ({ user }) => {
 
   const scroll3 = (scrollOffset) => {
     ref3.current.scrollLeft += scrollOffset
+  }
+
+  const scroll4 = scrollOffset => {
+    ref4.current.scrollLeft += scrollOffset
   }
 
   return (
@@ -141,6 +155,25 @@ const Home = ({ user }) => {
           <button
             id="carouselButtonRight"
             onClick={() => scroll3(500)}
+          ></button>
+        </section>
+      </div>
+
+      <div>
+        <h1 className="carouselTitle"> This Isn't My World? </h1>
+        <section className="container">
+          <button
+            id="carouselButtonLeft"
+            onClick={() => scroll4(-500)}
+          ></button>
+          <div className="wrapper romance" ref={ref4}>
+            {isekai.map(anime => (
+              <AnimeCard key={anime.id} {...anime} />
+            ))}
+          </div>
+          <button
+            id="carouselButtonRight"
+            onClick={() => scroll4(500)}
           ></button>
         </section>
       </div>
