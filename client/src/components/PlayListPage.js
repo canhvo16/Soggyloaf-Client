@@ -22,10 +22,12 @@ const PlayList = ({ user }) => {
   }, [])
 
   return (
-    <div className="playlist">{
-      playlist &&
-      playlist.map((anime, index) => anime && anime.title && <AnimeCard key={index} {...anime} />)
-    }
+    <div className="playlist">
+      {playlist &&
+        playlist.map(
+          (anime, index) =>
+            anime && anime.title && <AnimeCard key={index} {...anime} />
+        )}
     </div>
   )
 }
