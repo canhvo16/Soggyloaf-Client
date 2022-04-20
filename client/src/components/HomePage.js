@@ -55,13 +55,13 @@ const Home = () => {
     <div className="scroll">
       <h1 className="carouselTitle"> Most Popular </h1>
       <section className="container">
-        <button id="carouselButtonLeft" onClick={() => scroll(-450)}></button>
+        <button id="carouselButtonLeft" onClick={() => scroll(-500)}></button>
         <div className="wrapper" ref={ref}>
           {topAnimes.map(anime => (
             <AnimeCard key={anime.id} {...anime} />
           ))}
         </div>
-        <button id="carouselButtonRight" onClick={() => scroll(450)}></button>
+        <button id="carouselButtonRight" onClick={() => scroll(500)}></button>
       </section>
 
       <div>
@@ -69,7 +69,7 @@ const Home = () => {
         <section className="container">
           <button
             id="carouselButtonLeft"
-            onClick={() => scroll1(-450)}
+            onClick={() => scroll1(-500)}
           ></button>
           <div className="wrapper romance" ref={ref1}>
             {newAnimes.map(anime => (
@@ -78,7 +78,7 @@ const Home = () => {
           </div>
           <button
             id="carouselButtonRight"
-            onClick={() => scroll1(450)}
+            onClick={() => scroll1(500)}
           ></button>
         </section>
       </div>
@@ -88,7 +88,7 @@ const Home = () => {
         <section className="container">
           <button
             id="carouselButtonLeft"
-            onClick={() => scroll2(-450)}
+            onClick={() => scroll2(-500)}
           ></button>
           <div className="wrapper" ref={ref2}>
             {romAnimes.map(anime => (
@@ -97,7 +97,7 @@ const Home = () => {
           </div>
           <button
             id="carouselButtonRight"
-            onClick={() => scroll2(450)}
+            onClick={() => scroll2(500)}
           ></button>
         </section>
       </div>
@@ -107,7 +107,7 @@ const Home = () => {
         <section className="container">
           <button
             id="carouselButtonLeft"
-            onClick={() => scroll3(-450)}
+            onClick={() => scroll3(-500)}
           ></button>
           <div className="wrapper romance" ref={ref3}>
             {longAnimes.map(anime => (
@@ -116,7 +116,7 @@ const Home = () => {
           </div>
           <button
             id="carouselButtonRight"
-            onClick={() => scroll3(450)}
+            onClick={() => scroll3(500)}
           ></button>
         </section>
       </div>
