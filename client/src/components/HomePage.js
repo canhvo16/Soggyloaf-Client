@@ -1,54 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import AnimeCard from './AnimeCard'
-import WatchListSlideShow from './WatchListSlideShow'
 import { useRef } from 'react'
-import {
-  getIsekais,
-  getLongAnime,
-  getNewAnime,
-  getRomanceAnime,
-  getTopAnimes,
-  getAnime
-} from '../resource'
-import { getPlaylist } from '../services/Playlist'
 
-const Home = ({ user }) => {
-  const [topAnimes, setTopAnimes] = useState([])
-  const [romAnimes, setRomAnimes] = useState([])
-  const [longAnimes, setLongAnimes] = useState([])
-  const [newAnimes, setNewAnimes] = useState([])
-  const [isekai, setIsekai] = useState([])
-
+const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
   let ref = useRef()
   let ref1 = useRef()
   let ref2 = useRef()
   let ref3 = useRef()
   let ref4 = useRef()
-
-  // useEffect(() => {
-  //   fetchPlayList()
-  // }, [])
-  // console.log(user)
-  // let userId = user.id
-
-  // const [playlist, setPlaylist] = useState([])
-
-  // const fetchPlayList = async () => {
-  //   const list = await getPlaylist(userId)
-  //   const promises = list
-  //     .filter((anime) => anime.animeRefId)
-  //     .map((anime) => getAnime(anime.animeRefId))
-  //   const animes = await Promise.all(promises)
-  //   setPlaylist(animes)
-  // }
-
-  useEffect(() => {
-    getTopAnimes(setTopAnimes)
-    getRomanceAnime(setRomAnimes)
-    getLongAnime(setLongAnimes)
-    getNewAnime(setNewAnimes)
-    getIsekais(setIsekai)
-  })
 
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset
@@ -72,15 +31,6 @@ const Home = ({ user }) => {
 
   return (
     <div className="scroll">
-      {/* <div>
-        <h1 className="carouselTitle"> On Your Watch List </h1>
-        <section className="container">
-          <div className="wrapper">{watchlist}</div>
-        </section>
-        <button>Previous</button>
-        <button>Next</button>
-      </div> */}
-
       <h1 className="carouselTitle"> Most Popular </h1>
       <section className="container">
         <button id="carouselButtonLeft" onClick={() => scroll(-500)}></button>

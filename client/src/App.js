@@ -12,11 +12,23 @@ import PlayList from './components/PlayListPage'
 import AnimeDetails from './components/AnimeDetailsPage'
 import SearchPage from './components/SearchPage'
 import ProfilePage from './components/ProfilePage'
-import { getAnime } from './resource'
+import {
+  getIsekais,
+  getLongAnime,
+  getNewAnime,
+  getRomanceAnime,
+  getTopAnimes,
+  getAnime
+} from './resource'
 import { getPlaylist } from './services/Playlist'
 
 function App() {
   const [user, setUser] = useState(null)
+  const [topAnimes, setTopAnimes] = useState([])
+  const [romAnimes, setRomAnimes] = useState([])
+  const [longAnimes, setLongAnimes] = useState([])
+  const [newAnimes, setNewAnimes] = useState([])
+  const [isekai, setIsekai] = useState([])
 
   let userId
   if (user) {
@@ -53,6 +65,11 @@ function App() {
     if (token) {
       checkToken()
     }
+    getTopAnimes(setTopAnimes)
+    getRomanceAnime(setRomAnimes)
+    getLongAnime(setLongAnimes)
+    getNewAnime(setNewAnimes)
+    getIsekais(setIsekai)
   }, [])
 
   return (
@@ -61,7 +78,18 @@ function App() {
         <Nav user={user} logout={logout} />
       </header>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              topAnimes={topAnimes}
+              romAnimes={romAnimes}
+              longAnimes={longAnimes}
+              newAnimes={newAnimes}
+              isekai={isekai}
+            />
+          }
+        />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/register" element={<Register />} />

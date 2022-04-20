@@ -52,7 +52,7 @@ const AnimeDetails = ({ user }) => {
         </div>
       </div>
       <div>
-        <div className="animeDetails">{animes}</div>
+        <div className="animeDetails">{episodes}</div>
       </div>
     </div>
   )
