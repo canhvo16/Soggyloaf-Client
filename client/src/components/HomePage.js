@@ -21,19 +21,10 @@ const Home = () => {
 
   useEffect(() => {
     getTopAnimes(setTopAnimes)
-  }, [])
-
-  useEffect(() => {
     getRomanceAnime(setRomAnimes)
-  })
-
-  useEffect(() => {
     getLongAnime(setLongAnimes)
-  })
-
-  useEffect(() => {
     getNewAnime(setNewAnimes)
-  })
+  }, [])
 
   const scroll = scrollOffset => {
     ref.current.scrollLeft += scrollOffset

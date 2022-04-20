@@ -90,12 +90,13 @@ const getAnime = (id) => {
   const query = `
   query {
     Media(id: ${id} ){
+      id
       title {
         english,
         userPreferred
       }
       coverImage {
-        medium
+        large
       }
     }
   }

@@ -10,11 +10,11 @@ const EpisodeCard = ({ title, thumbnail, url }) => {
   return (
     <div className='epcontainer' onClick={() => onClick()}>
       <div id="container">
-      <div class="card">
-        <div class="cardImgBox">
-          <img src={thumbnail} alt={title} class="cardImage" width="450" />
+      <div className="card">
+        <div className="cardImgBox">
+          <img src={thumbnail} alt={title} className="cardImage" width="450" />
         </div>
-        <div class="cardBody">
+        <div className="cardBody">
           <h4>{title}</h4>
         </div>
       </div>
