@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getTopAnimes = async callback => {
+const getTopAnimes = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -83,13 +83,13 @@ const getAnimeDetails = async (callback, id) => {
     data: {
       query: query
     }
-  }).then(res => {
+  }).then((res) => {
     callback(res.data.data.Media)
     console.log(res.data.data.Media)
   })
 }
 
-const getAnime = async id => {
+const getAnime = async (id) => {
   const query = `
   query {
     Media(id: ${id} ){
@@ -111,12 +111,12 @@ const getAnime = async id => {
     data: {
       query: query
     }
-  }).then(res => {
+  }).then((res) => {
     return res.data.data.Media
   })
 }
 
-const getRomanceAnime = async callback => {
+const getRomanceAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -143,7 +143,7 @@ const getRomanceAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getLongAnime = async callback => {
+const getLongAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -170,7 +170,7 @@ const getLongAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getNewAnime = async callback => {
+const getNewAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -197,7 +197,7 @@ const getNewAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getIsekais = async callback => {
+const getIsekais = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {

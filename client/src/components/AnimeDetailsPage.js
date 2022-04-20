@@ -36,23 +36,21 @@ const AnimeDetails = ({ user }) => {
   }
 
   return (
-
-    <div className="card1">
-
-      <div className="cardLeft">
-        <img src={coverImage} alt={title} className="cardImage" width="450" />
+    <div>
+      <div className="card1">
+        <div class="cardLeft">
+          <img src={coverImage} alt={title} class="cardImage" width="450" />
+        </div>
+        <div class="cardRight">
+          <h4 className="title1">{title}</h4>
+          <p className="description1">{description}</p>
+          <button
+            className="addToWatchlist"
+            onClick={onClick}
+            disabled={user ? false : true}
+          ></button>
+        </div>
       </div>
-
-      <div className="cardRight">
-        <h4 className="title1">{title}</h4>
-        <p className="description1">{description}</p>
-        <button
-          className="addToWatchlist"
-          onClick={onClick}
-          disabled={user ? false : true}
-        ></button>
-      </div>
-
       <div>
         <div className="animeDetails">{episodes}</div>
       </div>
