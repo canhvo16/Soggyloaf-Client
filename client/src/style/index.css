@@ -147,7 +147,7 @@ section {
 }
 
 #carouselButtonLeft {
-  opacity: .5;
+  opacity: .2;
   height: 80px;
   width: 60px;
   margin: auto;
@@ -158,7 +158,7 @@ section {
 #carouselButtonRight {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-  opacity: .5;
+  opacity: .2;
   height: 80px;
   width: 60px;
   margin: auto;
