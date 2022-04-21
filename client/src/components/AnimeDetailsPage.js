@@ -15,8 +15,8 @@ const AnimeDetails = ({ user }) => {
 
   let episodes = animeDetails.streamingEpisodes
     ? animeDetails.streamingEpisodes.map((episode, index) => (
-        <EpisodeCard key={index} {...episode} />
-      ))
+      <EpisodeCard key={index} {...episode} />
+    ))
     : null
 
   let title = animeDetails.title
@@ -54,7 +54,9 @@ const AnimeDetails = ({ user }) => {
       <div>
         <div className="animeDetails">{episodes}</div>
       </div>
+
     </div>
+
   )
 }
 
