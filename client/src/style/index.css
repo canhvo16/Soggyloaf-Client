@@ -346,3 +346,23 @@ hr {
 .destroyButton {
   color: red;
 }
+
+.playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  width: 55vw;
+  margin: auto;
+}
+
+.playlist-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.playlistCard {
+  width: 400px;
+}
