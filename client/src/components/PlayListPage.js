@@ -5,7 +5,6 @@ import { getPlaylist } from '../services/Playlist'
 
 const PlayList = ({ playlist, fetchPlayList, user, setPlaylist }) => {
   const userId = user.id
-  console.log(user)
   useEffect(() => {
     if (!playlist) {
       fetchPlayList()

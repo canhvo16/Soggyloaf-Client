@@ -8,7 +8,6 @@ const AnimeCard = ({ id, title, popularity, coverImage }) => {
     navigate(`/anime/${id}`)
   }
 
-  console.log(coverImage)
   return (
     <div className='animeCard' onClick={() => showDetails(id)}>
       <div className='space'>

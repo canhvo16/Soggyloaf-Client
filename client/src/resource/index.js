@@ -85,7 +85,6 @@ const getAnimeDetails = async (callback, id) => {
     }
   }).then((res) => {
     callback(res.data.data.Media)
-    console.log(res.data.data.Media)
   })
 }
 
