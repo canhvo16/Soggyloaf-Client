@@ -375,7 +375,6 @@ hr {
   color: red;
 }
 
-<<<<<<< HEAD
 .playlist {
   display: flex;
   flex-direction: column;
@@ -415,7 +414,6 @@ hr {
   background-size: 100%;
   position: absolute;
 }
-=======
 .searchcontainer {
   width: 58vw;
   margin: auto;
@@ -463,4 +461,3 @@ hr {
   border: 1px solid white;
   margin-top: 2em;
 }
->>>>>>> 7f564532b6403e92e61058a723ee1cbcf1570e40
