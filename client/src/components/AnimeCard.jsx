@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 
-const AnimeCard = ({ id, title, popularity, coverImage }) => {
+const AnimeCard = ({ id, title, coverImage }) => {
   const navigate = useNavigate()
 
   const showDetails = id => {

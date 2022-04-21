@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import AnimeCard from './AnimeCard'
 import { deleteAnimeFromList } from '../services/Playlist'
-import { getPlaylist } from '../services/Playlist'
 
 const PlayList = ({ playlist, fetchPlayList, user, setPlaylist }) => {
   const userId = user.id
@@ -25,14 +24,14 @@ const PlayList = ({ playlist, fetchPlayList, user, setPlaylist }) => {
             (anime) =>
               anime &&
               anime.title && (
-                <div key={anime.id} className="playlistCard">
-                  <AnimeCard {...anime} />
-                  <button
-                    className="removeButton"
-                    onClick={() => removeAnimeFromPlaylist(anime.animeId)}
-                  >
-                    remove
-                  </button>
+                <div key={anime.id} className="playlistCard card1">
+                  <div className="buttonRemove">
+                    <button
+                      className="removeButton"
+                      onClick={() => removeAnimeFromPlaylist(anime.animeId)}
+                    ></button>
+                  </div>
+                  <AnimeCard {...anime} className="animePlaylist" />
                 </div>
               )
           )}
