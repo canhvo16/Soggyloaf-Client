@@ -80,6 +80,10 @@ function App() {
     getIsekais(setIsekai)
   }, [])
 
+  useEffect(() => {
+    document.title = 'soggyloaf'
+  }, [])
+
   return (
     <div className="App">
       <header className="header">
