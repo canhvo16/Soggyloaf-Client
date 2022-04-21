@@ -12,11 +12,23 @@ import PlayList from './components/PlayListPage'
 import AnimeDetails from './components/AnimeDetailsPage'
 import SearchPage from './components/SearchPage'
 import ProfilePage from './components/ProfilePage'
-import { getAnime } from './resource'
+import {
+  getIsekais,
+  getLongAnime,
+  getNewAnime,
+  getRomanceAnime,
+  getTopAnimes,
+  getAnime
+} from './resource'
 import { getPlaylist } from './services/Playlist'
 
 function App() {
   const [user, setUser] = useState(null)
+  const [topAnimes, setTopAnimes] = useState([])
+  const [romAnimes, setRomAnimes] = useState([])
+  const [longAnimes, setLongAnimes] = useState([])
+  const [newAnimes, setNewAnimes] = useState([])
+  const [isekai, setIsekai] = useState([])
 
   let userId
   if (user) {
@@ -24,15 +36,22 @@ function App() {
   }
 
   const [playlist, setPlaylist] = useState(null)
-
   const fetchPlayList = async () => {
     const list = await getPlaylist(userId)
-    const promises = list
-      .filter((anime) => anime.animeRefId)
-      .map((anime) => getAnime(anime.animeRefId))
-    const animes = await Promise.all(promises)
+    const filteredList = list.filter(anime => anime.animeRefId)
+    const animeRefIds = filteredList.map(anime => anime.animeRefId)
+    const animeRefIdsMap = Object.assign(
+      {},
+      ...filteredList.map(anime => ({ [anime.animeRefId]: anime.id }))
+    )
+    let animes = await getAnime(animeRefIds)
+
+    animes = animes.map(anime => {
+      anime.animeId = animeRefIdsMap[anime.id]
+      return anime
+    })
+
     setPlaylist(animes)
-    console.log(animes)
   }
 
   const PrivateOutlet = () => {
@@ -54,6 +73,11 @@ function App() {
     if (token) {
       checkToken()
     }
+    getTopAnimes(setTopAnimes)
+    getRomanceAnime(setRomAnimes)
+    getLongAnime(setLongAnimes)
+    getNewAnime(setNewAnimes)
+    getIsekais(setIsekai)
   }, [])
 
   return (
@@ -62,7 +86,18 @@ function App() {
         <Nav user={user} logout={logout} />
       </header>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              topAnimes={topAnimes}
+              romAnimes={romAnimes}
+              longAnimes={longAnimes}
+              newAnimes={newAnimes}
+              isekai={isekai}
+            />
+          }
+        />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/register" element={<Register />} />
@@ -76,6 +111,7 @@ function App() {
                 user={user}
                 playlist={playlist}
                 fetchPlayList={fetchPlayList}
+                setPlaylist={setPlaylist}
               />
             }
           />

@@ -15,8 +15,8 @@ const AnimeDetails = ({ user }) => {
 
   let episodes = animeDetails.streamingEpisodes
     ? animeDetails.streamingEpisodes.map((episode, index) => (
-        <EpisodeCard key={index} {...episode} />
-      ))
+      <EpisodeCard key={index} {...episode} />
+    ))
     : null
 
   let title = animeDetails.title
@@ -37,19 +37,11 @@ const AnimeDetails = ({ user }) => {
 
   return (
     <div>
-<<<<<<< HEAD
-      <button onClick={onClick} disabled={user ? false : true}>
-        Add to List
-      </button>
-      <div>
-        <h1 className="episodetitle">{title}</h1>
-        <div className="animeDetails">{episodes}</div>
-=======
       <div className="card1">
-        <div class="cardLeft">
-          <img src={coverImage} alt={title} class="cardImage" width="450" />
+        <div className="cardLeft">
+          <img src={coverImage} alt={title} className="cardImage" width="450" />
         </div>
-        <div class="cardRight">
+        <div className="cardRight">
           <h4 className="title1">{title}</h4>
           <p className="description1">{description}</p>
           <button
@@ -60,10 +52,11 @@ const AnimeDetails = ({ user }) => {
         </div>
       </div>
       <div>
-        <div className="animeDetails">{animes}</div>
->>>>>>> e4607b87ed23e21e49230469ad6be576715b170c
+        <div className="animeDetails">{episodes}</div>
       </div>
+
     </div>
+
   )
 }
 

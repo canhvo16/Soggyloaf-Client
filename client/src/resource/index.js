@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getTopAnimes = async callback => {
+const getTopAnimes = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -83,29 +83,30 @@ const getAnimeDetails = async (callback, id) => {
     data: {
       query: query
     }
-  }).then(res => {
+  }).then((res) => {
     callback(res.data.data.Media)
-    console.log(res.data.data.Media)
   })
 }
 
-<<<<<<< HEAD
-const getAnime = async (id) => {
-=======
-const getAnime = id => {
->>>>>>> e4607b87ed23e21e49230469ad6be576715b170c
+const getAnime = async (animeRefIds) => {
   const query = `
-  query {
-    Media(id: ${id} ){
-      id
-      title {
-        english,
-        userPreferred
+  query ($animeRefIds: [Int]) { 
+    Page(perPage: 100) {
+      media(type: ANIME, popularity_greater: 100000, sort: POPULARITY_DESC, id_in: $animeRefIds) {
+        id
+        title {
+          english,
+          userPreferred
+        }
+        popularity 
+        coverImage {
+          large,
+          medium
+        }
+        streamingEpisodes {
+          url
+        }
       }
-      coverImage {
-        large
-      }
-      description
     }
   }
   `
@@ -113,14 +114,17 @@ const getAnime = id => {
     url: 'https://graphql.anilist.co/',
     method: 'post',
     data: {
-      query: query
+      query: query,
+      variables: {
+        animeRefIds
+      }
     }
-  }).then(res => {
-    return res.data.data.Media
+  }).then((res) => {
+    return res.data.data.Page.media
   })
 }
 
-const getRomanceAnime = async callback => {
+const getRomanceAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -147,7 +151,7 @@ const getRomanceAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getLongAnime = async callback => {
+const getLongAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -174,7 +178,7 @@ const getLongAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getNewAnime = async callback => {
+const getNewAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -201,7 +205,7 @@ const getNewAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getIsekais = async callback => {
+const getIsekais = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -235,9 +239,6 @@ export {
   getRomanceAnime,
   getLongAnime,
   getNewAnime,
-<<<<<<< HEAD
-=======
   getIsekais,
->>>>>>> e4607b87ed23e21e49230469ad6be576715b170c
   getAnime
 }
