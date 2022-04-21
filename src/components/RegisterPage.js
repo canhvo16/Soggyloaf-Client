@@ -43,38 +43,46 @@ const Register = () => {
   }
 
   return (
-    <div className="register">
+    <div className="login box">
+      <h1>Register, Please...</h1>
+      <hr />
       <form className="register box" onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="Name"
-          name="name"
-          value={userBody.name}
-          onChange={onChange}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          value={userBody.email}
-          onChange={onChange}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={userBody.password}
-          onChange={onChange}
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          name="confirmPassword"
-          value={confirmPassword}
-          onChange={(e) => {
-            setConfirmPassword(e.target.value)
-          }}
-        />
+        <div className="form">
+          <h3>Name</h3>
+          <input
+            type="text"
+            placeholder="Name"
+            name="name"
+            value={userBody.name}
+            onChange={onChange}
+          />
+          <h3>Email</h3>
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={userBody.email}
+            onChange={onChange}
+          />
+          <h3>Password</h3>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={userBody.password}
+            onChange={onChange}
+          />
+          <h3>Confirm Password</h3>
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            name="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value)
+            }}
+          />
+        </div>
         <button
           type="submit"
           disabled={
