@@ -378,6 +378,45 @@ hr {
   color: red;
 }
 
+.playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  width: 55vw;
+  margin: auto;
+}
+
+.playlist-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 4em;
+}
+
+.playlistCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 250px;
+  height: 400px;
+  background-color: rgb(47, 45, 45);
+}
+
+.buttonRemove {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.removeButton {
+  background-image: url('../assets/RedX.png');
+  width: 30px;
+  height: 30px;
+  background-size: 100%;
+  position: absolute;
+}
 .searchcontainer {
   width: 58vw;
   margin: auto;
