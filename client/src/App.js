@@ -36,13 +36,18 @@ function App() {
   }
 
   const [playlist, setPlaylist] = useState(null)
-
   const fetchPlayList = async () => {
     const list = await getPlaylist(userId)
-    const promises = list
-      .filter((anime) => anime.animeRefId)
-      .map((anime) => getAnime(anime.animeRefId))
-    const animes = await Promise.all(promises)
+    const filteredList = list.filter((anime) => anime.animeRefId)
+    const animeRefIds = filteredList.map(anime => anime.animeRefId)
+    const animeRefIdsMap = Object.assign({}, ...filteredList.map(anime => ({ [anime.animeRefId]: anime.id })))
+    let animes = await getAnime(animeRefIds)
+
+    animes = animes.map(anime => {
+      anime.animeId = animeRefIdsMap[anime.id]
+      return anime
+    })
+
     setPlaylist(animes)
   }
 
@@ -103,6 +108,7 @@ function App() {
                 user={user}
                 playlist={playlist}
                 fetchPlayList={fetchPlayList}
+                setPlaylist={setPlaylist}
               />
             }
           />

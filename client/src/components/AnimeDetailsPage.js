@@ -38,10 +38,10 @@ const AnimeDetails = ({ user }) => {
   return (
     <div>
       <div className="card1">
-        <div class="cardLeft">
-          <img src={coverImage} alt={title} class="cardImage" width="450" />
+        <div className="cardLeft">
+          <img src={coverImage} alt={title} className="cardImage" width="450" />
         </div>
-        <div class="cardRight">
+        <div className="cardRight">
           <h4 className="title1">{title}</h4>
           <p className="description1">{description}</p>
           <button

@@ -19,3 +19,12 @@ export const addToList = async (userId, animeRefId) => {
     throw error
   }
 }
+
+export const deleteAnimeFromList = async (userId, animeId) => {
+  try {
+    return Client.delete(`/watchlist/${userId}/${animeId}`)
+  }
+  catch (error) {
+    throw error
+  }
+}

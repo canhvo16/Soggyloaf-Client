@@ -89,30 +89,39 @@ const getAnimeDetails = async (callback, id) => {
   })
 }
 
-const getAnime = async (id) => {
+const getAnime = async (animeRefIds) => {
   const query = `
-  query {
-    Media(id: ${id} ){
-      id
-      title {
-        english,
-        userPreferred
+  query ($animeRefIds: [Int]) { 
+    Page(perPage: 100) {
+      media(type: ANIME, popularity_greater: 100000, sort: POPULARITY_DESC, id_in: $animeRefIds) {
+        id
+        title {
+          english,
+          userPreferred
+        }
+        popularity 
+        coverImage {
+          large,
+          medium
+        }
+        streamingEpisodes {
+          url
+        }
       }
-      coverImage {
-        large
-      }
-      description
     }
   }
   `
-  await axios({
+  return await axios({
     url: 'https://graphql.anilist.co/',
     method: 'post',
     data: {
-      query: query
+      query: query,
+      variables: {
+        animeRefIds
+      }
     }
   }).then((res) => {
-    return res.data.data.Media
+    return res.data.data.Page.media
   })
 }
 
