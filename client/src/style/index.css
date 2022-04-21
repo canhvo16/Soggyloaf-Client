@@ -60,7 +60,7 @@ code {
   padding: 20px;
 }
 
-.animeImg {
+.animeCard .animeImg {
   width: 190px;
   height: 250px;
   -webkit-box-reflect: below 5px
@@ -375,6 +375,7 @@ hr {
   color: red;
 }
 
+<<<<<<< HEAD
 .playlist {
   display: flex;
   flex-direction: column;
@@ -414,3 +415,52 @@ hr {
   background-size: 100%;
   position: absolute;
 }
+=======
+.searchcontainer {
+  width: 58vw;
+  margin: auto;
+  align-content: center;
+}
+
+.searchtitle {
+  text-align: center;
+  color: white;
+}
+
+.searchform {
+  margin: auto;
+  display: flex;
+}
+
+.searchinput {
+  margin: auto;
+  margin-right: 0px;
+  background-color: #e3edf7;
+  padding: 16px 32px;
+  border: none;
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  color: #a9b8c9;
+  -webkit-appearance: none;
+  transition: all 240ms ease-out;
+  width: 40vw;
+}
+
+.searchbutton {
+  margin-right: 5em;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2pf2eimgvHcdSQ3ZlTRt9vzGN_c3j6e9tHg&usqp=CAU');
+  width: 3.8em;
+  background-size: cover;
+}
+
+.animesearchcontainer {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, 15em);
+  justify-content: space-between;
+  width: 58vw;
+  row-gap: 3em;
+  border: 1px solid white;
+  margin-top: 2em;
+}
+>>>>>>> 7f564532b6403e92e61058a723ee1cbcf1570e40
