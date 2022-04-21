@@ -467,3 +467,10 @@ hr {
   margin-top: 2em;
   overflow: hidden;
 }
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
