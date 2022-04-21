@@ -402,6 +402,7 @@ hr {
   width: 250px;
   height: 400px;
   background-color: rgb(47, 45, 45);
+  overflow: hidden;
 }
 
 .buttonRemove {
@@ -463,4 +464,5 @@ hr {
   row-gap: 3em;
   border: 1px solid white;
   margin-top: 2em;
+  overflow: hidden;
 }
