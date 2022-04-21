@@ -253,3 +253,96 @@ section {
     margin: 0 0 20px 0;
     background: transparent;
 }
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  max-width: 55vw;
+  height: 100vh;
+  margin: auto;
+  background-color: rgb(47, 45, 45);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+}
+
+.links:hover {
+  color: rgb(189, 0, 189);
+}
+
+.profile-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  width: 55vw;
+}
+
+.writing {
+  text-indent: 30px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.profilePage {
+  margin: auto;
+  width: 55vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: rgb(47, 45, 45);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profileName {
+  font-size: 67px;
+  margin-bottom: 0;
+}
+
+.profileEmail {
+  font-size: 25px;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 30px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.destroyButton {
+  color: red;
+}

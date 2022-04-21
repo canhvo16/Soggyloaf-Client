@@ -2,10 +2,10 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div>
+    <div className="about">
       <h1>About SoggyLoaf</h1>
       <hr />
-      <p>
+      <p className="writing">
         This is a Full-Stack PERN (PostgreSQL/Express/React/Node) application
         with a built-in custom user authentication. SoggLoaf is made out of the
         love for anime and inpired by a popular application named Crunchyroll.
@@ -19,30 +19,49 @@ const About = () => {
         you so much for using SoggyLoaf!
       </p>
       <h2>About the Team</h2>
-      <p>
+      <p className="writing">
         We are a team of passionate, anime-viewing, General Assembly students
         enrolled in the Software Engineering Immersive curriculum. This is our
         Unit 3 project.
       </p>
-      <h3>LinkedIn Profiles</h3>
-      <div>
-        <a href="linkedin.com/in/takkwanlo">Tak Lo</a>
-        <a href="https://www.linkedin.com/in/guillermo-palencia/">
-          Guillermo Palencia
-        </a>
-        <a href="https://www.linkedin.com/in/canhvo16/">Canh Vo</a>
-      </div>
-      <h3>Github Profiles</h3>
-      <div>
-        <a href="https://github.com/TakKwan">Tak Lo</a>
-        <a href="https://github.com/guillermopalencia">Guillermo Palencia</a>
-        <a href="https://github.com/canhvo16">Canh Vo</a>
+      <div className="profile-container">
+        <div>
+          <h3>LinkedIn Profiles</h3>
+          <div className="link-container">
+            <a className="links" href="linkedin.com/in/takkwanlo">
+              Tak Lo
+            </a>
+            <a
+              className="links"
+              href="https://www.linkedin.com/in/guillermo-palencia/"
+            >
+              Guillermo Palencia
+            </a>
+            <a className="links" href="https://www.linkedin.com/in/canhvo16/">
+              Canh Vo
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3>Github Profiles</h3>
+          <div className="link-container">
+            <a className="links" href="https://github.com/TakKwan">
+              Tak Lo
+            </a>
+            <a className="links" href="https://github.com/guillermopalencia">
+              Guillermo Palencia
+            </a>
+            <a className="links" href="https://github.com/canhvo16">
+              Canh Vo
+            </a>
+          </div>
+        </div>
       </div>
       <h3>Github Repository</h3>
-      <a href="https://github.com/canhvo16/Soggyloaf-Client">
+      <a className="links" href="https://github.com/canhvo16/Soggyloaf-Client">
         Client Repository
       </a>
-      <a href="https://github.com/canhvo16/Soggyloaf-Server">
+      <a className="links" href="https://github.com/canhvo16/Soggyloaf-Server">
         Server Repository
       </a>
     </div>
