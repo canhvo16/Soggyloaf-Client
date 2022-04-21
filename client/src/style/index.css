@@ -214,6 +214,7 @@ section {
   border-radius:0 10px 10px 0;
   -webkit-border-radius:0 10px 10px 0;
   -moz-border-radius:0 10px 10px 0;
+  overflow: auto;
 }
 
 .title1 {
