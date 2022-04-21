@@ -38,9 +38,12 @@ function App() {
   const [playlist, setPlaylist] = useState(null)
   const fetchPlayList = async () => {
     const list = await getPlaylist(userId)
-    const filteredList = list.filter((anime) => anime.animeRefId)
+    const filteredList = list.filter(anime => anime.animeRefId)
     const animeRefIds = filteredList.map(anime => anime.animeRefId)
-    const animeRefIdsMap = Object.assign({}, ...filteredList.map(anime => ({ [anime.animeRefId]: anime.id })))
+    const animeRefIdsMap = Object.assign(
+      {},
+      ...filteredList.map(anime => ({ [anime.animeRefId]: anime.id }))
+    )
     let animes = await getAnime(animeRefIds)
 
     animes = animes.map(anime => {
