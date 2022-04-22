@@ -2,12 +2,20 @@ import React from 'react'
 import AnimeCard from './AnimeCard'
 import { useRef } from 'react'
 
-const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
+const Home = ({
+  topAnimes,
+  romAnimes,
+  longAnimes,
+  newAnimes,
+  isekai,
+  sportsAnime
+}) => {
   let ref = useRef()
   let ref1 = useRef()
   let ref2 = useRef()
   let ref3 = useRef()
   let ref4 = useRef()
+  let ref5 = useRef()
 
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset
@@ -29,6 +37,10 @@ const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
     ref4.current.scrollLeft += scrollOffset
   }
 
+  const scroll5 = (scrollOffset) => {
+    ref5.current.scrollLeft += scrollOffset
+  }
+
   return (
     <div className="mainContainer">
       <div className="scroll">
@@ -48,6 +60,25 @@ const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
           </div>
           <button id="carouselButtonRight" onClick={() => scroll(500)}></button>
         </section>
+
+        <div>
+          <h1 className="carouselTitle"> Sports </h1>
+          <section className="container">
+            <button
+              id="carouselButtonLeft"
+              onClick={() => scroll5(-500)}
+            ></button>
+            <div className="wrapper" ref={ref5}>
+              {sportsAnime.map((anime) => (
+                <AnimeCard key={anime.id} {...anime} />
+              ))}
+            </div>
+            <button
+              id="carouselButtonRight"
+              onClick={() => scroll5(500)}
+            ></button>
+          </section>
+        </div>
 
         <div>
           <h1 className="carouselTitle"> Romance </h1>
