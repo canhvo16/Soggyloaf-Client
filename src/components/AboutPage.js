@@ -7,8 +7,8 @@ const About = () => {
       <hr />
       <p className="writing">
         This is a Full-Stack PERN (PostgreSQL/Express/React/Node) application
-        with a built-in custom user authentication. SoggLoaf is made out of the
-        love for anime and inpired by a popular application named Crunchyroll.
+        with a built-in custom user authentication. SoggyLoaf is made out of the
+        love for anime and inspired by a popular application named Crunchyroll.
         Credits to AniList for providing a free anime database that is used for
         SoggyLoaf. In the application, users will be sent to the HomePage which
         displays a list of animes from different categories. There is a Search
