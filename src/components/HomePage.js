@@ -8,7 +8,8 @@ const Home = ({
   longAnimes,
   newAnimes,
   isekai,
-  sportsAnime
+  sportsAnime,
+  mysteryAnime
 }) => {
   let ref = useRef()
   let ref1 = useRef()
@@ -16,6 +17,7 @@ const Home = ({
   let ref3 = useRef()
   let ref4 = useRef()
   let ref5 = useRef()
+  let ref6 = useRef()
 
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset
@@ -39,6 +41,10 @@ const Home = ({
 
   const scroll5 = (scrollOffset) => {
     ref5.current.scrollLeft += scrollOffset
+  }
+
+  const scroll6 = (scrollOffset) => {
+    ref6.current.scrollLeft += scrollOffset
   }
 
   return (
@@ -76,6 +82,25 @@ const Home = ({
             <button
               id="carouselButtonRight"
               onClick={() => scroll5(500)}
+            ></button>
+          </section>
+        </div>
+
+        <div>
+          <h1 className="carouselTitle"> Keep You On The Edge Of Your Seat </h1>
+          <section className="container">
+            <button
+              id="carouselButtonLeft"
+              onClick={() => scroll6(-500)}
+            ></button>
+            <div className="wrapper" ref={ref6}>
+              {mysteryAnime.map((anime) => (
+                <AnimeCard key={anime.id} {...anime} />
+              ))}
+            </div>
+            <button
+              id="carouselButtonRight"
+              onClick={() => scroll6(500)}
             ></button>
           </section>
         </div>

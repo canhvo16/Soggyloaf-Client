@@ -259,6 +259,33 @@ const getSportsAnime = async (callback) => {
   callback(res.data.data.Page.media)
 }
 
+const getMysteryAnime = async (callback) => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(type: ANIME episodes_greater: 1 genre_in: "Mystery", genre_not_in: "Action" sort: POPULARITY_DESC) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+}
+
 export {
   getTopAnimes,
   searchAnimes,
@@ -268,5 +295,6 @@ export {
   getNewAnime,
   getIsekais,
   getAnime,
-  getSportsAnime
+  getSportsAnime,
+  getMysteryAnime
 }
