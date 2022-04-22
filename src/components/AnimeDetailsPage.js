@@ -33,10 +33,9 @@ const AnimeDetails = ({ user }) => {
     ? (coverImage = animeDetails.coverImage.large)
     : (coverImage = 'image')
 
-  const onClick = () => {
-    addToList(user.id, id)
-    location.reload()
-    navigate('/playlist')
+  const onClick = async () => {
+    await addToList(user.id, id)
+    window.location.reload()
   }
 
   return (
