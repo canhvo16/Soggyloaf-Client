@@ -20,7 +20,8 @@ import {
   getTopAnimes,
   getAnime,
   getSportsAnime,
-  getMysteryAnime
+  getMysteryAnime,
+  getSOLAnime
 } from './resource'
 import { getPlaylist } from './services/Playlist'
 
@@ -33,6 +34,7 @@ function App() {
   const [isekai, setIsekai] = useState([])
   const [sportsAnime, setSportsAnime] = useState([])
   const [mysteryAnime, setMysteryAnime] = useState([])
+  const [solAnime, setSolAnime] = useState([])
 
   let userId
   if (user) {
@@ -84,6 +86,7 @@ function App() {
     getIsekais(setIsekai)
     getSportsAnime(setSportsAnime)
     getMysteryAnime(setMysteryAnime)
+    getSOLAnime(setSolAnime)
   }, [])
 
   return (
@@ -103,6 +106,7 @@ function App() {
               isekai={isekai}
               sportsAnime={sportsAnime}
               mysteryAnime={mysteryAnime}
+              solAnime={solAnime}
             />
           }
         />

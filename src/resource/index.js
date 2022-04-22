@@ -286,6 +286,33 @@ const getMysteryAnime = async (callback) => {
   callback(res.data.data.Page.media)
 }
 
+const getSOLAnime = async (callback) => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(type: ANIME episodes_greater: 1 genre_in: "Slice of Life" sort: POPULARITY_DESC) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+}
+
 export {
   getTopAnimes,
   searchAnimes,
@@ -296,5 +323,6 @@ export {
   getIsekais,
   getAnime,
   getSportsAnime,
-  getMysteryAnime
+  getMysteryAnime,
+  getSOLAnime
 }
