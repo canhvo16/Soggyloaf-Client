@@ -1,13 +1,15 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { getAnimeDetails } from '../resource'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router-dom'
 import EpisodeCard from './EpisodeCard.jsx'
 import { addToList } from '../services/Playlist'
+
 
 const AnimeDetails = ({ user }) => {
   const { id } = useParams()
   const [animeDetails, setAnimeDetails] = useState({})
+  const navigate = useNavigate()
 
   useEffect(() => {
     getAnimeDetails(setAnimeDetails, id)
@@ -33,6 +35,8 @@ const AnimeDetails = ({ user }) => {
 
   const onClick = () => {
     addToList(user.id, id)
+    location.reload()
+    navigate('/playlist')
   }
 
   return (

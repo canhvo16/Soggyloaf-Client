@@ -50,7 +50,7 @@ const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
         </section>
 
         <div>
-          <h1 className="carouselTitle"> Recently Added To SoggyLoaf </h1>
+          <h1 className="carouselTitle"> Soon To Be Added </h1>
           <section className="container">
             <button
               id="carouselButtonLeft"
