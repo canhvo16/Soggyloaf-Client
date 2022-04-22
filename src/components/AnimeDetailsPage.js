@@ -5,7 +5,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import EpisodeCard from './EpisodeCard.jsx'
 import { addToList } from '../services/Playlist'
 
-
 const AnimeDetails = ({ user }) => {
   const { id } = useParams()
   const [animeDetails, setAnimeDetails] = useState({})
@@ -33,20 +32,9 @@ const AnimeDetails = ({ user }) => {
     ? (coverImage = animeDetails.coverImage.large)
     : (coverImage = 'image')
 
-<<<<<<< HEAD
-  const onClick = () => {
-    if (user) {
-      addToList(user.id, id)
-    } else {
-      alert(
-        'You must be a verified user to have access to a watch. Please log in or register an account!'
-      )
-    }
-=======
   const onClick = async () => {
     await addToList(user.id, id)
     window.location.reload()
->>>>>>> 563937730d480980ea96ddebd6e56e612203d011
   }
 
   return (

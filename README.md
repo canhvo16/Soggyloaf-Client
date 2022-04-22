@@ -1,10 +1,12 @@
-# SoggyLoaf
+# SoggyLoaf-Client
 
 ## Date: 4/13/2022
 
 ### By: [[Canh Vo](https://www.linkedin.com/in/canhvo16/)], [[Guillermo Palencia](https://www.linkedin.com/in/guillermo-palencia/)], [[Tak Lo](linkedin.com/in/takkwanlo)]
 
 ### [Server GitHub Repository](https://github.com/canhvo16/Soggyloaf-Server), [Trello](https://trello.com/b/hqFjZAfn/soggyloaf)
+
+### [SoggyLoaf](https://soggyloaf.herokuapp.com/)
 
 ---
 
