@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const getTopAnimes = async callback => {
+const getTopAnimes = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -89,12 +89,12 @@ const getAnimeDetails = async (callback, id) => {
     data: {
       query: query
     }
-  }).then(res => {
+  }).then((res) => {
     callback(res.data.data.Media)
   })
 }
 
-const getAnime = async animeRefIds => {
+const getAnime = async (animeRefIds) => {
   const query = `
   query ($animeRefIds: [Int]) { 
     Page(perPage: 100) {
@@ -127,12 +127,12 @@ const getAnime = async animeRefIds => {
         animeRefIds
       }
     }
-  }).then(res => {
+  }).then((res) => {
     return res.data.data.Page.media
   })
 }
 
-const getRomanceAnime = async callback => {
+const getRomanceAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -161,7 +161,7 @@ const getRomanceAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getLongAnime = async callback => {
+const getLongAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -190,7 +190,7 @@ const getLongAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getNewAnime = async callback => {
+const getNewAnime = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -219,7 +219,7 @@ const getNewAnime = async callback => {
   callback(res.data.data.Page.media)
 }
 
-const getIsekais = async callback => {
+const getIsekais = async (callback) => {
   const query = `
     query { 
       Page(perPage: 100) {
@@ -248,6 +248,87 @@ const getIsekais = async callback => {
   callback(res.data.data.Page.media)
 }
 
+const getSportsAnime = async (callback) => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(type: ANIME episodes_greater: 1 genre_in: "Sports" sort: POPULARITY_DESC) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+}
+
+const getMysteryAnime = async (callback) => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(type: ANIME episodes_greater: 1 genre_in: "Mystery", genre_not_in: "Action" sort: POPULARITY_DESC) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+}
+
+const getSOLAnime = async (callback) => {
+  const query = `
+    query { 
+      Page(perPage: 100) {
+        media(type: ANIME episodes_greater: 1 genre_in: "Slice of Life" sort: POPULARITY_DESC) {
+          id
+          title {
+            english,
+            userPreferred
+          }
+          coverImage {
+            large
+          }
+        }
+      }
+    }
+  `
+  const res = await axios({
+    url: 'https://graphql.anilist.co/',
+    method: 'post',
+    data: {
+      query: query
+    }
+  })
+  callback(res.data.data.Page.media)
+}
+
 export {
   getTopAnimes,
   searchAnimes,
@@ -256,5 +337,8 @@ export {
   getLongAnime,
   getNewAnime,
   getIsekais,
-  getAnime
+  getAnime,
+  getSportsAnime,
+  getMysteryAnime,
+  getSOLAnime
 }
