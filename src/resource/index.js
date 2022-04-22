@@ -8,7 +8,9 @@ const getTopAnimes = async callback => {
           id
           title {
             english,
-            userPreferred
+            userPreferred,
+            native,
+            romaji
           }
           popularity
           coverImage {
@@ -36,7 +38,9 @@ const searchAnimes = async (callback, search) => {
         id
           title {
           english,
-            userPreferred
+            userPreferred,
+            native,
+            romaji
         }
         popularity
           coverImage {
@@ -63,7 +67,9 @@ const getAnimeDetails = async (callback, id) => {
       id
       title {
         english,
-        userPreferred
+        userPreferred,
+        native,
+        romaji
       }
       coverImage {
         large
@@ -96,7 +102,9 @@ const getAnime = async animeRefIds => {
         id
         title {
           english,
-          userPreferred
+          userPreferred,
+          native,
+          romaji
         }
         popularity 
         coverImage {
@@ -132,7 +140,9 @@ const getRomanceAnime = async callback => {
           id
           title {
             english,
-            userPreferred
+            userPreferred,
+            native,
+            romaji
           }
           coverImage {
             large
@@ -159,7 +169,9 @@ const getLongAnime = async callback => {
           id
           title {
             english,
-            userPreferred
+            userPreferred,
+            native,
+            romaji
           }
           coverImage {
             large
@@ -186,7 +198,9 @@ const getNewAnime = async callback => {
           id
           title {
             english,
-            userPreferred
+            userPreferred,
+            native,
+            romaji
           }
           coverImage {
             large
@@ -213,7 +227,9 @@ const getIsekais = async callback => {
           id
           title {
             english,
-            userPreferred
+            userPreferred,
+            native,
+            romaji
           }
           coverImage {
             large
