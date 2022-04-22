@@ -33,9 +33,15 @@ const AnimeDetails = ({ user }) => {
     ? (coverImage = animeDetails.coverImage.large)
     : (coverImage = 'image')
 
-  const onClick = async () => {
-    await addToList(user.id, id)
-    window.location.reload()
+  const onClick = () => {
+    if (user) {
+      addToList(user.id, id)
+      window.location.reload()
+    } else {
+      alert(
+        'You must be a verified user to have access to a watch. Please log in or register an account!'
+      )
+    }
   }
 
   return (
@@ -57,9 +63,7 @@ const AnimeDetails = ({ user }) => {
       <div>
         <div className="animeDetails">{episodes}</div>
       </div>
-
     </div>
-
   )
 }
 
