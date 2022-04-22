@@ -18,7 +18,10 @@ import {
   getNewAnime,
   getRomanceAnime,
   getTopAnimes,
-  getAnime
+  getAnime,
+  getSportsAnime,
+  getMysteryAnime,
+  getSOLAnime
 } from './resource'
 import { getPlaylist } from './services/Playlist'
 
@@ -29,6 +32,9 @@ function App() {
   const [longAnimes, setLongAnimes] = useState([])
   const [newAnimes, setNewAnimes] = useState([])
   const [isekai, setIsekai] = useState([])
+  const [sportsAnime, setSportsAnime] = useState([])
+  const [mysteryAnime, setMysteryAnime] = useState([])
+  const [solAnime, setSolAnime] = useState([])
 
   let userId
   if (user) {
@@ -38,15 +44,15 @@ function App() {
   const [playlist, setPlaylist] = useState(null)
   const fetchPlayList = async () => {
     const list = await getPlaylist(userId)
-    const filteredList = list.filter(anime => anime.animeRefId)
-    const animeRefIds = filteredList.map(anime => anime.animeRefId)
+    const filteredList = list.filter((anime) => anime.animeRefId)
+    const animeRefIds = filteredList.map((anime) => anime.animeRefId)
     const animeRefIdsMap = Object.assign(
       {},
-      ...filteredList.map(anime => ({ [anime.animeRefId]: anime.id }))
+      ...filteredList.map((anime) => ({ [anime.animeRefId]: anime.id }))
     )
     let animes = await getAnime(animeRefIds)
 
-    animes = animes.map(anime => {
+    animes = animes.map((anime) => {
       anime.animeId = animeRefIdsMap[anime.id]
       return anime
     })
@@ -78,6 +84,9 @@ function App() {
     getLongAnime(setLongAnimes)
     getNewAnime(setNewAnimes)
     getIsekais(setIsekai)
+    getSportsAnime(setSportsAnime)
+    getMysteryAnime(setMysteryAnime)
+    getSOLAnime(setSolAnime)
   }, [])
 
   return (
@@ -95,6 +104,9 @@ function App() {
               longAnimes={longAnimes}
               newAnimes={newAnimes}
               isekai={isekai}
+              sportsAnime={sportsAnime}
+              mysteryAnime={mysteryAnime}
+              solAnime={solAnime}
             />
           }
         />

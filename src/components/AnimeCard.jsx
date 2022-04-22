@@ -11,7 +11,7 @@ const AnimeCard = ({ id, title, coverImage }) => {
   return (
     <div className='animeCard' onClick={() => showDetails(id)}>
       <div className='space'>
-      <h2 className='animeTitle'>{title.userPerferred || title.english}</h2>
+      <h2 className='animeTitle'>{title.userPerferred || title.english || title.romaji || title.native}</h2>
       </div>
       <img className='animeImg' src={coverImage.large} alt={title.english} />
     </div>

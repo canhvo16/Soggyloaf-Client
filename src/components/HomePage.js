@@ -2,31 +2,55 @@ import React from 'react'
 import AnimeCard from './AnimeCard'
 import { useRef } from 'react'
 
-const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
+const Home = ({
+  topAnimes,
+  romAnimes,
+  longAnimes,
+  newAnimes,
+  isekai,
+  sportsAnime,
+  mysteryAnime,
+  solAnime
+}) => {
   let ref = useRef()
   let ref1 = useRef()
   let ref2 = useRef()
   let ref3 = useRef()
   let ref4 = useRef()
+  let ref5 = useRef()
+  let ref6 = useRef()
+  let ref7 = useRef()
 
-  const scroll = scrollOffset => {
+  const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset
   }
 
-  const scroll1 = scrollOffset => {
+  const scroll1 = (scrollOffset) => {
     ref1.current.scrollLeft += scrollOffset
   }
 
-  const scroll2 = scrollOffset => {
+  const scroll2 = (scrollOffset) => {
     ref2.current.scrollLeft += scrollOffset
   }
 
-  const scroll3 = scrollOffset => {
+  const scroll3 = (scrollOffset) => {
     ref3.current.scrollLeft += scrollOffset
   }
 
-  const scroll4 = scrollOffset => {
+  const scroll4 = (scrollOffset) => {
     ref4.current.scrollLeft += scrollOffset
+  }
+
+  const scroll5 = (scrollOffset) => {
+    ref5.current.scrollLeft += scrollOffset
+  }
+
+  const scroll6 = (scrollOffset) => {
+    ref6.current.scrollLeft += scrollOffset
+  }
+
+  const scroll7 = (scrollOffset) => {
+    ref7.current.scrollLeft += scrollOffset
   }
 
   return (
@@ -42,7 +66,7 @@ const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
         <section className="container">
           <button id="carouselButtonLeft" onClick={() => scroll(-500)}></button>
           <div className="wrapper" ref={ref}>
-            {topAnimes.map(anime => (
+            {topAnimes.map((anime) => (
               <AnimeCard key={anime.id} {...anime} />
             ))}
           </div>
@@ -50,20 +74,58 @@ const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
         </section>
 
         <div>
-          <h1 className="carouselTitle"> Soon To Be Added </h1>
+          <h1 className="carouselTitle"> Keep You On The Edge Of Your Seat </h1>
           <section className="container">
             <button
               id="carouselButtonLeft"
-              onClick={() => scroll1(-500)}
+              onClick={() => scroll6(-500)}
             ></button>
-            <div className="wrapper romance" ref={ref1}>
-              {newAnimes.map(anime => (
+            <div className="wrapper" ref={ref6}>
+              {mysteryAnime.map((anime) => (
                 <AnimeCard key={anime.id} {...anime} />
               ))}
             </div>
             <button
               id="carouselButtonRight"
-              onClick={() => scroll1(500)}
+              onClick={() => scroll6(500)}
+            ></button>
+          </section>
+        </div>
+
+        <div>
+          <h1 className="carouselTitle"> Sports </h1>
+          <section className="container">
+            <button
+              id="carouselButtonLeft"
+              onClick={() => scroll5(-500)}
+            ></button>
+            <div className="wrapper" ref={ref5}>
+              {sportsAnime.map((anime) => (
+                <AnimeCard key={anime.id} {...anime} />
+              ))}
+            </div>
+            <button
+              id="carouselButtonRight"
+              onClick={() => scroll5(500)}
+            ></button>
+          </section>
+        </div>
+
+        <div>
+          <h1 className="carouselTitle"> Slice of Life </h1>
+          <section className="container">
+            <button
+              id="carouselButtonLeft"
+              onClick={() => scroll7(-500)}
+            ></button>
+            <div className="wrapper" ref={ref7}>
+              {solAnime.map((anime) => (
+                <AnimeCard key={anime.id} {...anime} />
+              ))}
+            </div>
+            <button
+              id="carouselButtonRight"
+              onClick={() => scroll7(500)}
             ></button>
           </section>
         </div>
@@ -76,7 +138,7 @@ const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
               onClick={() => scroll2(-500)}
             ></button>
             <div className="wrapper" ref={ref2}>
-              {romAnimes.map(anime => (
+              {romAnimes.map((anime) => (
                 <AnimeCard key={anime.id} {...anime} />
               ))}
             </div>
@@ -95,7 +157,7 @@ const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
               onClick={() => scroll3(-500)}
             ></button>
             <div className="wrapper romance" ref={ref3}>
-              {longAnimes.map(anime => (
+              {longAnimes.map((anime) => (
                 <AnimeCard key={anime.id} {...anime} />
               ))}
             </div>
@@ -114,13 +176,32 @@ const Home = ({ topAnimes, romAnimes, longAnimes, newAnimes, isekai }) => {
               onClick={() => scroll4(-500)}
             ></button>
             <div className="wrapper romance" ref={ref4}>
-              {isekai.map(anime => (
+              {isekai.map((anime) => (
                 <AnimeCard key={anime.id} {...anime} />
               ))}
             </div>
             <button
               id="carouselButtonRight"
               onClick={() => scroll4(500)}
+            ></button>
+          </section>
+        </div>
+
+        <div>
+          <h1 className="carouselTitle"> Soon To Be Added </h1>
+          <section className="container">
+            <button
+              id="carouselButtonLeft"
+              onClick={() => scroll1(-500)}
+            ></button>
+            <div className="wrapper romance" ref={ref1}>
+              {newAnimes.map((anime) => (
+                <AnimeCard key={anime.id} {...anime} />
+              ))}
+            </div>
+            <button
+              id="carouselButtonRight"
+              onClick={() => scroll1(500)}
             ></button>
           </section>
         </div>
