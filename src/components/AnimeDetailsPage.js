@@ -15,8 +15,8 @@ const AnimeDetails = ({ user }) => {
 
   let episodes = animeDetails.streamingEpisodes
     ? animeDetails.streamingEpisodes.map((episode, index) => (
-      <EpisodeCard key={index} {...episode} />
-    ))
+        <EpisodeCard key={index} {...episode} />
+      ))
     : null
 
   let title = animeDetails.title
@@ -32,7 +32,13 @@ const AnimeDetails = ({ user }) => {
     : (coverImage = 'image')
 
   const onClick = () => {
-    addToList(user.id, id)
+    if (user) {
+      addToList(user.id, id)
+    } else {
+      alert(
+        'You must be a verified user to have access to a watch. Please log in or register an account!'
+      )
+    }
   }
 
   return (
@@ -54,9 +60,7 @@ const AnimeDetails = ({ user }) => {
       <div>
         <div className="animeDetails">{episodes}</div>
       </div>
-
     </div>
-
   )
 }
 
