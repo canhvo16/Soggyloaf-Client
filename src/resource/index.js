@@ -256,7 +256,9 @@ const getSportsAnime = async (callback) => {
           id
           title {
             english,
-            userPreferred
+            userPreferred,
+            native,
+            romaji
           }
           coverImage {
             large
@@ -283,7 +285,9 @@ const getMysteryAnime = async (callback) => {
           id
           title {
             english,
-            userPreferred
+            userPreferred,
+            native,
+            romaji
           }
           coverImage {
             large
@@ -310,7 +314,9 @@ const getSOLAnime = async (callback) => {
           id
           title {
             english,
-            userPreferred
+            userPreferred,
+            native,
+            romaji
           }
           coverImage {
             large
